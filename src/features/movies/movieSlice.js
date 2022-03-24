@@ -1,11 +1,17 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+
+export const fetchMovies = createAsyncThunk('movie/fetchMovies', async () => {
+	const response = await fetch('/test').then((response) => response.json());
+	return response.data;
+});
 
 const initialState = {
-	value: 0,
+	movies: [],
+	status: 'idle',
 };
 
 export const movieSlice = createSlice({
-	name: 'movies',
+	name: 'movie',
 	initialState,
 	reducers: {
 		increment: (state) => {
@@ -22,9 +28,20 @@ export const movieSlice = createSlice({
 			state.value += action.payload;
 		},
 	},
+	extraReducers: (builder) => {
+		builder
+			.addCase(fetchMovies.pending, (state, action) => {
+				state.status = 'loading';
+			})
+			.addCase(fetchMovies.fulfilled, (state, action) => {
+				console.log(action.payload);
+				state.movies = action.payload;
+				state.status = 'idle';
+			});
+	},
 });
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = counterSlice.actions;
+export const { increment, decrement, incrementByAmount } = movieSlice.actions;
 
 export default movieSlice.reducer;

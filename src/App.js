@@ -1,7 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
+import { useEffect, useState } from 'react';
+import { fetchMovies } from './features/movies/movieSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
 function App() {
+	const dispatch = useDispatch();
+	// const [movies, setMovies] = useState();
+	// useEffect(() => {
+	// 	dispatch(fetchMovies());
+	// }, []);
 	return (
 		<div className='App'>
 			<header className='App-header'>
