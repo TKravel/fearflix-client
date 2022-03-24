@@ -3,6 +3,7 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import { fetchMovies } from './features/movies/movieSlice';
 import { useDispatch, useSelector } from 'react-redux';
+import { movieData } from './data';
 
 function App() {
 	const dispatch = useDispatch();
@@ -10,6 +11,7 @@ function App() {
 	// useEffect(() => {
 	// 	dispatch(fetchMovies());
 	// }, []);
+	console.log(movieData);
 	return (
 		<div className='App'>
 			<header className='App-header'>
