@@ -1,0 +1,17 @@
+nav {
+	@include flexContainer($direction: row, $justify: space-between);
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 5;
+	background-color: #0c0c0c;
+	height: 2.5rem;
+	width: 100%;
+	& .left-nav {
+		@include flexContainer($direction: row, $justify: flex-start);
+	}
+	& .right-nav {
+		@include flexContainer($direction: row, $justify: flex-end);
+	}
+}

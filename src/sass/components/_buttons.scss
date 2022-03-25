@@ -1,0 +1,27 @@
+.hero-play-btn {
+	background-color: $white;
+	border: none;
+	border-radius: 0.3rem;
+	height: 2rem;
+	font-weight: 700;
+	&:hover {
+		background-color: $white-hover;
+	}
+}
+
+.hero-more-info-btn {
+	background-color: $transparent-grey;
+	border: none;
+	border-radius: 0.3rem;
+	color: $white;
+	height: 2rem;
+	font-weight: 700;
+	&:hover {
+		background-color: $transparent-grey-hover;
+	}
+}
+.hero-btn-text {
+	display: flex;
+	align-items: center;
+	padding: 0 0.5rem;
+}

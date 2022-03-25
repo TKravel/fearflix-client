@@ -5,6 +5,7 @@ import { fetchMovies } from './features/movies/movieSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { movieData } from './data';
 import { Nav } from './pages/home/Nav';
+import { Hero } from './pages/home/Hero';
 
 function App() {
 	const dispatch = useDispatch();
@@ -16,6 +17,7 @@ function App() {
 	return (
 		<div className='App'>
 			<Nav />
+			<Hero />
 		</div>
 	);
 }
