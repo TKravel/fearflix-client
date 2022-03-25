@@ -10,6 +10,15 @@ nav {
 	width: 100%;
 	& .left-nav {
 		@include flexContainer($direction: row, $justify: flex-start);
+		& .main-logo {
+			height: 1.4rem;
+			margin: 0 0.5rem;
+		}
+
+		& .nav-li-item {
+			font-size: 0.8rem;
+			margin: 0 0.7rem;
+		}
 	}
 	& .right-nav {
 		@include flexContainer($direction: row, $justify: flex-end);

@@ -151,6 +151,20 @@ html {
   padding: 0 0.5rem;
 }
 
+.nav-search-icon {
+  fill: #ffffff;
+  height: 16px;
+  width: 16px;
+  margin: 0 0.5rem;
+}
+
+.nav-alerts-icon {
+  fill: #ffffff;
+  height: 16px;
+  width: 16px;
+  margin: 0 0.5rem;
+}
+
 .hero-play-icon {
   height: 20px;
   width: 20px;
@@ -280,6 +294,16 @@ nav .left-nav {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+nav .left-nav .main-logo {
+  height: 1.4rem;
+  margin: 0 0.5rem;
+}
+
+nav .left-nav .nav-li-item {
+  font-size: 0.8rem;
+  margin: 0 0.7rem;
 }
 
 nav .right-nav {
