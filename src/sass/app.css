@@ -151,6 +151,64 @@ html {
   padding: 0 0.5rem;
 }
 
+.carousel-button {
+  background-color: transparent;
+  border: none;
+  fill: white;
+  height: 100%;
+  z-index: 100;
+}
+
+.carousel-button:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.carousel-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 120px;
+  position: relative;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.carousel-wrapper .carousel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
 .nav-search-icon {
   fill: #ffffff;
   height: 16px;
@@ -248,9 +306,22 @@ html {
 }
 
 .hero .rating-container p {
-  background-color: rgba(109, 109, 110, 0.7);
+  background-color: rgba(109, 109, 110, 0.5);
   border-left: 3px solid #ffffff;
-  padding: 0.3rem 1rem 0.3rem 0.3rem;
+  font-weight: 600;
+  padding: 0.3rem 2.5rem 0.3rem 0.6rem;
+  text-shadow: 0px 1px 6px rgba(0, 0, 0, 0.8);
+}
+
+.movie-card {
+  margin: 0 1px;
+  width: 200px;
+}
+
+.movie-card img {
+  border-radius: 3px;
+  height: auto;
+  width: 100%;
 }
 
 nav {
@@ -273,8 +344,9 @@ nav {
   top: 0;
   left: 0;
   z-index: 5;
-  background-color: #0c0c0c;
-  height: 2.5rem;
+  background-color: transparent;
+  height: 4rem;
+  text-shadow: 0px 1px 6px rgba(0, 0, 0, 0.8);
   width: 100%;
 }
 
@@ -297,8 +369,8 @@ nav .left-nav {
 }
 
 nav .left-nav .main-logo {
-  height: 1.4rem;
-  margin: 0 0.5rem;
+  height: 1.8rem;
+  margin: 0 1.5rem 0 2rem;
 }
 
 nav .left-nav .nav-li-item {

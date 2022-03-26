@@ -1,9 +1,11 @@
 import { movieData } from '../../data';
 import { InfoIcon } from '../../svg/InfoIcon';
 import { PlayIcon } from '../../svg/PlayIcon';
+import { getRating } from '../../utils/movieUtils';
 
 export const Hero = () => {
-	const imageURL = movieData[3].backdropURLs[1280];
+	const randomNum = Math.ceil(Math.random() * 130);
+	const imageURL = movieData[randomNum].backdropURLs[1280];
 	console.log(imageURL);
 	return (
 		<section
@@ -17,8 +19,8 @@ export const Hero = () => {
 			}}
 		>
 			<div className='hero-details'>
-				<h1>{movieData[3].title}</h1>
-				<p>{movieData[3].overview}</p>
+				<h1>{movieData[randomNum].title}</h1>
+				<p>{movieData[randomNum].overview}</p>
 				<div className='hero-btn-container'>
 					<button className='hero-play-btn'>
 						<div className='hero-btn-text'>
@@ -35,7 +37,7 @@ export const Hero = () => {
 				</div>
 			</div>
 			<div className='rating-container'>
-				<p>Rating</p>
+				<p>{getRating(movieData[randomNum].age)}</p>
 			</div>
 		</section>
 	);

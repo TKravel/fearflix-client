@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { movieData } from './data';
 import { Nav } from './pages/home/Nav';
 import { Hero } from './pages/home/Hero';
+import { MovieDisplayContainer } from './pages/home/movie-display/MovieDisplayContainer';
 
 function App() {
 	const dispatch = useDispatch();
@@ -18,6 +19,7 @@ function App() {
 		<div className='App'>
 			<Nav />
 			<Hero />
+			<MovieDisplayContainer />
 		</div>
 	);
 }

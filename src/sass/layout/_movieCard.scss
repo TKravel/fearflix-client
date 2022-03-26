@@ -1,0 +1,10 @@
+.movie-card {
+	margin: 0 1px;
+	width: 200px;
+	& img {
+		border-radius: 3px;
+		height: auto;
+
+		width: 100%;
+	}
+}

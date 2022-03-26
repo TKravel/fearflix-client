@@ -6,7 +6,7 @@ export const Nav = () => {
 		<nav>
 			<ul className='left-nav'>
 				<li className='nav-main-li-item'>
-					<img className='main-logo' src='/fearflix.png' />
+					<img className='main-logo' src='/fearflix-logo.png' />
 				</li>
 				<li className='nav-li-item'>Home</li>
 				<li className='nav-li-item'>TV Shows</li>

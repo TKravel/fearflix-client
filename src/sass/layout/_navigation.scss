@@ -5,14 +5,16 @@ nav {
 	top: 0;
 	left: 0;
 	z-index: 5;
-	background-color: #0c0c0c;
-	height: 2.5rem;
+	// background-color: #0c0c0c;
+	background-color: transparent;
+	height: 4rem;
+	text-shadow: $text-shadow;
 	width: 100%;
 	& .left-nav {
 		@include flexContainer($direction: row, $justify: flex-start);
 		& .main-logo {
-			height: 1.4rem;
-			margin: 0 0.5rem;
+			height: 1.8rem;
+			margin: 0 1.5rem 0 2rem;
 		}
 
 		& .nav-li-item {

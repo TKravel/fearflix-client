@@ -25,3 +25,14 @@
 	align-items: center;
 	padding: 0 0.5rem;
 }
+
+.carousel-button {
+	background-color: transparent;
+	border: none;
+	fill: white;
+	height: 100%;
+	z-index: 100;
+	&:hover {
+		background-color: $transparent-grey-hover-light;
+	}
+}
