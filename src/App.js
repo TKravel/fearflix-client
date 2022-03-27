@@ -10,10 +10,10 @@ import { MovieDisplayContainer } from './pages/home/movie-display/MovieDisplayCo
 
 function App() {
 	const dispatch = useDispatch();
-	// const [movies, setMovies] = useState();
-	// useEffect(() => {
-	// 	dispatch(fetchMovies());
-	// }, []);
+	const [movies, setMovies] = useState();
+	useEffect(() => {
+		dispatch(fetchMovies());
+	}, []);
 	console.log(movieData);
 	return (
 		<div className='App'>
