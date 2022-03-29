@@ -195,9 +195,9 @@ html {
           flex-direction: row;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-pack: right;
-      -ms-flex-pack: right;
-          justify-content: right;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -205,9 +205,9 @@ html {
       flex-wrap: nowrap;
   position: absolute;
   top: 0;
-  left: -1347px;
-  width: 4040px;
-  z-index: -1;
+  left: -2792px;
+  width: 5656px;
+  z-index: 2;
 }
 
 .nav-search-icon {
@@ -315,13 +315,29 @@ html {
 }
 
 .movie-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin: 0 1px;
+  height: 300px;
   width: 200px;
 }
 
 .movie-card img {
   border-radius: 3px;
-  height: auto;
+  height: 300px;
   width: 100%;
 }
 
@@ -395,6 +411,11 @@ nav .right-nav {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.move-display-container {
+  background-color: #141414;
+  padding: 2rem 0;
 }
 
 .App {

@@ -2,7 +2,7 @@ import { Carousel } from './Carousel';
 
 export const MovieDisplayContainer = () => {
 	return (
-		<section>
+		<section className='move-display-container'>
 			<Carousel />
 		</section>
 	);

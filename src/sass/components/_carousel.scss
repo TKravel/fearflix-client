@@ -4,14 +4,13 @@
 	position: relative;
 	width: 100%;
 	overflow-x: hidden;
-
-	& .carousel {
-		@include flexContainer($direction: row, $justify: right);
+	.carousel {
+		@include flexContainer($direction: row, $justify: center);
 		flex-wrap: nowrap;
 		position: absolute;
 		top: 0;
-		left: -1347px;
-		width: 4040px;
-		z-index: -1;
+		left: -2792px;
+		width: 5656px;
+		z-index: 2;
 	}
 }
