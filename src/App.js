@@ -7,19 +7,20 @@ import { movieData } from './data';
 import { Nav } from './pages/home/Nav';
 import { Hero } from './pages/home/Hero';
 import { MovieDisplayContainer } from './pages/home/movie-display/MovieDisplayContainer';
+import { HoverModal } from './pages/home/modals/HoverModal';
 
 function App() {
 	const dispatch = useDispatch();
-	const [movies, setMovies] = useState();
 	// useEffect(() => {
 	// 	dispatch(fetchMovies());
 	// }, []);
-	console.log(movieData);
+
 	return (
 		<div className='App'>
 			<Nav />
 			<Hero />
 			<MovieDisplayContainer />
+			<HoverModal />
 		</div>
 	);
 }

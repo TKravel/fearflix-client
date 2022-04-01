@@ -1,16 +1,17 @@
 .carousel-wrapper {
 	@include flexContainer($direction: row, $justify: space-between);
-	height: 305px;
+	height: 320px;
 	position: relative;
 	width: 100%;
 	overflow-x: hidden;
-	.carousel {
+	z-index: 2;
+
+	& .carousel {
 		@include flexContainer($direction: row, $justify: center);
 		flex-wrap: nowrap;
 		position: absolute;
 		top: 0;
 		left: -2792px;
 		width: 5656px;
-		z-index: 2;
 	}
 }
