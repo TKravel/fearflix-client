@@ -210,6 +210,12 @@ html {
   height: 24px;
 }
 
+.carousel-container h3 {
+  padding: 0 0 16px 32px;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
 .carousel-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -253,8 +259,8 @@ html {
       flex-wrap: nowrap;
   position: absolute;
   top: 0;
-  left: -2792px;
-  width: 5656px;
+  left: -2852px;
+  width: 5768px;
 }
 
 .hover-modal {
@@ -297,7 +303,9 @@ html {
 }
 
 .hover-modal .hover-iframe {
+  border: none;
   height: auto;
+  padding: 0;
   width: 200px;
 }
 
@@ -317,8 +325,9 @@ html {
           flex-direction: column;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -363,8 +372,9 @@ html {
           flex-direction: row;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -486,7 +496,7 @@ html {
 
 .movie-card-wrapper {
   height: 310px;
-  max-width: 202px;
+  max-width: 206px;
 }
 
 .movie-card {
@@ -505,13 +515,14 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 0 1px;
+  border-radius: 6px;
+  margin: 0 3px;
   height: 300px;
+  overflow: hidden;
   width: 200px;
 }
 
 .movie-card img {
-  border-radius: 3px;
   height: 300px;
   width: 200px;
 }
@@ -594,9 +605,17 @@ nav .right-nav {
   background-color: #141414;
 }
 
-.move-display-container {
+.move-display-wrapper {
+  position: relative;
   background-color: #141414;
+  height: 1080px;
   padding: 2rem 0;
+}
+
+.move-display-container {
+  position: absolute;
+  margin-top: -100px;
+  width: 100%;
 }
 
 .App {

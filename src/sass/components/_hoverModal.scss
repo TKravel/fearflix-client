@@ -18,7 +18,9 @@
 		width: 200px;
 	}
 	& .hover-iframe {
+		border: none;
 		height: auto;
+		padding: 0;
 		width: 200px;
 	}
 }
@@ -29,7 +31,7 @@
 }
 
 .card-details {
-	@include flexContainer($direction: column, $justify: space-around);
+	@include flexContainer($direction: column, $justify: space-between);
 	margin: auto 0;
 }
 
@@ -46,6 +48,6 @@
 }
 
 .hover-modal-description {
-	@include flexContainer($direction: row, $justify: space-around)
+	@include flexContainer($direction: row, $justify: space-between)
 }
 

@@ -2,52 +2,24 @@ import { useEffect, useState } from 'react';
 import { NextArrowIcon } from '../../../svg/NextArrowIcon';
 import { PrevArrowIcon } from '../../../svg/PrevArrowIcon';
 import { MovieCard } from './MovieCard';
-import { movieData } from '../../../data';
-import { useDispatch } from 'react-redux';
-import { openHover, closeHover } from '../../../features/modals/modalSlice';
-import { getPos } from '../../../utils/carouselUtils';
 
-export const Carousel = () => {
-	const dispatch = useDispatch();
+export const Carousel = ({ id, title, movieList }) => {
+	const [loading, setLoading] = useState(true);
 	const [carouselData, setCarouselData] = useState([]);
 	const [hasShifted, setHasShifted] = useState(false);
 	const [isDisabled, setIsDisabled] = useState(false);
 	const [isHovered, setIsHovered] = useState(false);
-	const cardsVisible = Math.floor((window.innerWidth - 64) / 202);
+	const cardsVisible = Math.floor((window.innerWidth - 64) / 206);
 
 	useEffect(() => {
-		const state = [];
-		for (let i = carouselData.length; i < 28; i++) {
-			let randomNum = Math.ceil(Math.random() * movieData.length - 1);
-
-			if (!carouselData.includes(randomNum)) {
-				state.push(randomNum);
-			}
+		if (carouselData.length === 0) {
+			setCarouselData(movieList);
+			console.log(carouselData);
+			setLoading(false);
 		}
-		console.log(state);
-		setCarouselData(state);
-		// const carouselEl =
-		// 	document.getElementsByClassName('carousel-wrapper')[0];
-	}, []);
+	}, [carouselData]);
 
-	// const mouseOver = (e) => {
-	// 	const element = e.target.parentNode.parentNode;
-	// 	console.log(element);
-	// 	setIsHovered(true);
-	// 	if (typeof element.id !== undefined) {
-	// 		if (element.id !== 'next' || element.id !== 'prev') {
-	// 			dispatch(openHover({ id: element.id, pos: getPos(element) }));
-	// 		}
-	// 	}
-	// };
-
-	// const mouseLeave = () => {
-	// 	// console.log('leave');
-	// 	// dispatch(closeHover({ pos: {} }));
-	// 	setIsHovered(false);
-	// };
-
-	const carouselTrack = document.getElementById('carousel');
+	const carouselTrack = document.getElementById(`carousel${id}`);
 
 	const shiftCards = (direction) => {
 		if (direction === 'next') {
@@ -79,7 +51,7 @@ export const Carousel = () => {
 			if (!carouselTrack.style.transform) {
 				carouselTrack.style.setProperty(
 					'transform',
-					`translateX( ${-Math.abs(cardsVisible * 202)}px )`
+					`translateX( ${-Math.abs(cardsVisible * 206)}px )`
 				);
 				carouselTrack.style.setProperty('transition-duration', '1s');
 			} else {
@@ -90,7 +62,7 @@ export const Carousel = () => {
 			if (!carouselTrack.style.transform) {
 				carouselTrack.style.setProperty(
 					'transform',
-					`translateX(${cardsVisible * 202}px )`
+					`translateX(${cardsVisible * 206}px )`
 				);
 				carouselTrack.style.setProperty('transition-duration', '1s');
 			} else {
@@ -119,74 +91,82 @@ export const Carousel = () => {
 	};
 
 	return (
-		<div className='carousel-container'>
-			<h3>Cheap scares</h3>
-			<div
-				className='carousel-wrapper'
-				onMouseOver={hovered}
-				onMouseLeave={notHovered}
-			>
-				<button
-					id='prev'
-					className='carousel-button'
-					onClick={handleClick}
-					style={
-						!hasShifted
-							? { opacity: '0' }
-							: isHovered
-							? { opacity: '1' }
-							: { opacity: '0' }
-					}
-					disabled={isDisabled ? true : false}
-				>
-					<PrevArrowIcon />
-				</button>
-				<div
-					id='carousel'
-					className='carousel'
-					// onMouseEnter={(e) => setTimeout(mouseOver(e), 500)}
-					// onMouseLeave={mouseLeave}
-				>
-					{hasShifted === false
-						? carouselData.map((value, index) => {
-								if (index <= carouselData.length / 2 - 5) {
-									return (
-										<MovieCard
-											key={index}
-											index={index}
-											movieIdx={null}
-										/>
-									);
-								} else {
-									return (
-										<MovieCard
-											key={index}
-											idx={index}
-											movieIdx={value}
-										/>
-									);
-								}
-						  })
-						: carouselData.map((value, index) => {
-								return (
-									<MovieCard
-										key={index}
-										idx={index}
-										movieIdx={value}
-									/>
-								);
-						  })}
+		<>
+			{!loading ? (
+				<div className='carousel-container'>
+					<h3>{title}</h3>
+					<div
+						className='carousel-wrapper'
+						onMouseOver={hovered}
+						onMouseLeave={notHovered}
+					>
+						<button
+							id='prev'
+							className='carousel-button'
+							onClick={handleClick}
+							style={
+								!hasShifted
+									? { opacity: '0' }
+									: isHovered
+									? { opacity: '1' }
+									: { opacity: '0' }
+							}
+							disabled={isDisabled ? true : false}
+						>
+							<PrevArrowIcon />
+						</button>
+						<div id={`carousel${id}`} className='carousel'>
+							{hasShifted === false
+								? carouselData.map((value, index) => {
+										if (
+											index <=
+											Math.round(
+												carouselData.length / 2 -
+													cardsVisible / 2 +
+													1
+											)
+										) {
+											return (
+												<MovieCard
+													key={index}
+													index={index}
+													movieIdx={null}
+												/>
+											);
+										} else {
+											return (
+												<MovieCard
+													key={index}
+													idx={index}
+													movieIdx={value}
+												/>
+											);
+										}
+								  })
+								: carouselData.map((value, index) => {
+										return (
+											<MovieCard
+												key={index}
+												idx={index}
+												movieIdx={value}
+											/>
+										);
+								  })}
+						</div>
+						<button
+							id='next'
+							className='carousel-button'
+							onClick={handleClick}
+							style={
+								isHovered ? { opacity: '1' } : { opacity: '0' }
+							}
+							disabled={isDisabled ? true : false}
+						>
+							<NextArrowIcon />
+						</button>
+					</div>
 				</div>
-				<button
-					id='next'
-					className='carousel-button'
-					onClick={handleClick}
-					style={isHovered ? { opacity: '1' } : { opacity: '0' }}
-					disabled={isDisabled ? true : false}
-				>
-					<NextArrowIcon />
-				</button>
-			</div>
-		</div>
+			) : null}
+		</>
 	);
 };

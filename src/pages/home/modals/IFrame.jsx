@@ -1,6 +1,11 @@
 export const IFrame = ({ styles, vidURL }) => {
+	const handleError = () => {
+		console.log('error');
+	};
 	return (
 		<iframe
+			id='player'
+			onError={handleError}
 			className={styles}
 			height='200'
 			width='300'

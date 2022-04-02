@@ -1,4 +1,11 @@
-.move-display-container {
+.move-display-wrapper {
+	position: relative;
 	background-color: $med-grey;
+	height: 1080px;
 	padding: 2rem 0;
+}
+.move-display-container {
+	position: absolute;
+	margin-top: -100px;
+	width: 100%;
 }

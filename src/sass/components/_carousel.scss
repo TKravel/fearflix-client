@@ -1,3 +1,11 @@
+.carousel-container{
+	& h3 {
+		padding: 0 0 16px 32px;
+		font-size: 1.2rem;
+		font-weight: 600;
+	}
+}
+
 .carousel-wrapper {
 	@include flexContainer($direction: row, $justify: space-between);
 	height: 320px;
@@ -11,7 +19,7 @@
 		flex-wrap: nowrap;
 		position: absolute;
 		top: 0;
-		left: -2792px;
-		width: 5656px;
+		left: -2852px;
+		width: 5768px;
 	}
 }
