@@ -532,14 +532,16 @@ nav {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-  z-index: 5;
   background-color: transparent;
   height: 4rem;
   text-shadow: 0px 1px 6px rgba(0, 0, 0, 0.8);
+  -webkit-transition: background-color .7s;
+  transition: background-color .7s;
   width: 100%;
+  z-index: 5;
 }
 
 nav .left-nav {
@@ -586,6 +588,10 @@ nav .right-nav {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.nav-scrolled {
+  background-color: #141414;
 }
 
 .move-display-container {

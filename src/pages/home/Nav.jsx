@@ -1,7 +1,20 @@
+import { useEffect } from 'react';
 import { BellIcon } from '../../svg/BellIcon';
 import { SearchIcon } from '../../svg/SearchIcon';
 
 export const Nav = () => {
+	useEffect(() => {
+		const navbar = document.querySelector('nav');
+
+		window.onscroll = function () {
+			// pageYOffset or scrollY
+			if (window.pageYOffset > 0) {
+				navbar.classList.add('nav-scrolled');
+			} else {
+				navbar.classList.remove('nav-scrolled');
+			}
+		};
+	});
 	return (
 		<nav>
 			<ul className='left-nav'>

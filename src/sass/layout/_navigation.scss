@@ -1,15 +1,15 @@
 nav {
 	@include flexContainer($direction: row, $justify: space-between);
 
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
-	z-index: 5;
-	// background-color: #0c0c0c;
 	background-color: transparent;
 	height: 4rem;
 	text-shadow: $text-shadow;
+	transition: background-color .7s;
 	width: 100%;
+	z-index: 5;
 	& .left-nav {
 		@include flexContainer($direction: row, $justify: flex-start);
 		& .main-logo {
@@ -25,4 +25,9 @@ nav {
 	& .right-nav {
 		@include flexContainer($direction: row, $justify: flex-end);
 	}
+}
+
+.nav-scrolled {
+	// background-color: #0c0c0c;
+	background-color: $dark-grey;
 }
