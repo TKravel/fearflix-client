@@ -53,3 +53,15 @@
 	width: 24px;
 	height: 24px;
 }
+.footer-button {
+	background-color: transparent;
+	border: 1px solid $transparent-grey;
+	color: $transparent-grey;
+	cursor: pointer;
+	margin-bottom: 1rem;
+	padding: .5rem 1rem;
+	
+}
+.footer-button:hover{
+	color: $white;
+}
