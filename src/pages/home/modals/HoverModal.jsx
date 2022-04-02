@@ -2,6 +2,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { closeHover } from '../../../features/modals/modalSlice';
 import { movieData } from '../../../data';
 import { useEffect, useState } from 'react';
+import { ModalButton } from './ModalButton';
+import { getRating, displayRuntime } from '../../../utils/movieUtils';
+import { PlayIcon } from '../../../svg/PlayIcon';
+import { PlusIcon } from '../../../svg/PlusIcon';
+import { ThumbUpIcon } from '../../../svg/ThumbUpIcon';
+import { DownArrowIcon } from '../../../svg/DownArrowIcon';
 
 export const HoverModal = () => {
 	const dispatch = useDispatch();
@@ -54,7 +60,46 @@ export const HoverModal = () => {
 							/>
 						</div>
 						<div className='card-details'>
-							<h1>{movieData[modalStatus.id].title}</h1>
+							<div className='hover-modal-btn-container'>
+								<ModalButton
+									styles='modal-play'
+									buttonIcon={
+										<PlayIcon styles='modal-icon' />
+									}
+								/>
+								<ModalButton
+									styles='modal-button'
+									buttonIcon={
+										<PlusIcon styles='modal-icon' />
+									}
+								/>
+								<ModalButton
+									styles='modal-button'
+									buttonIcon={
+										<ThumbUpIcon styles='modal-icon' />
+									}
+								/>
+								<ModalButton
+									styles='modal-button'
+									buttonIcon={
+										<DownArrowIcon styles='modal-icon' />
+									}
+								/>
+							</div>
+							<p>
+								<span>
+									{movieData[modalStatus.id].imdbRating} IMDb
+									rating
+								</span>
+								<span>
+									{getRating(movieData[modalStatus.id].age)}
+								</span>
+								<span>
+									{displayRuntime(
+										movieData[modalStatus.id].runtime
+									)}
+								</span>
+							</p>
 						</div>
 					</div>
 				</>

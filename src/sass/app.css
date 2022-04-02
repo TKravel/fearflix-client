@@ -163,6 +163,52 @@ html {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
+.modal-play {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #ffffff;
+  border-radius: 100px;
+  width: 24px;
+  height: 24px;
+}
+
+.modal-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: transparent;
+  border: none;
+  border: 1px solid #ffffff;
+  border-radius: 100px;
+  width: 24px;
+  height: 24px;
+}
+
 .carousel-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -230,13 +276,15 @@ html {
   position: absolute;
   z-index: 100;
   background-color: #141414;
+  border-radius: 8px;
   -webkit-box-shadow: 0px 0px 10px 1px #000000;
           box-shadow: 0px 0px 10px 1px #000000;
+  font-size: .8rem;
   height: 300px;
   opacity: 0;
   width: 200px;
-  -webkit-transform: scale(1.3);
-          transform: scale(1.3);
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
   -webkit-transition: opacity 1.5s;
   transition: opacity 1.5s;
 }
@@ -250,6 +298,34 @@ html {
   -webkit-transform: scale(1.3);
           transform: scale(1.3);
   opacity: 1;
+}
+
+.hover-modal-btn-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+  width: 200px;
+}
+
+.hover-modal-btn-container div.modal-button, .hover-modal-btn-container div.modal-play {
+  margin: 5px;
+}
+
+.hover-modal-btn-container div:last-child {
+  margin-left: auto;
 }
 
 .nav-search-icon {
@@ -277,6 +353,16 @@ html {
   height: 20px;
   width: 20px;
   margin-right: 0.5rem;
+}
+
+.play-button {
+  color: #000;
+}
+
+.modal-icon {
+  height: 14px;
+  width: 14px;
+  stroke: #ffffff;
 }
 
 .hero {

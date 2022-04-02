@@ -1,5 +1,4 @@
 export const getRating = (age) => {
-	console.log(typeof age);
 	let rating = '';
 
 	if (age >= 0 && age <= 7) {
@@ -15,4 +14,11 @@ export const getRating = (age) => {
 	}
 
 	return rating;
+};
+
+export const displayRuntime = (num) => {
+	console.log(typeof num);
+	const hours = Math.floor(num / 60);
+	const mins = num % 60;
+	return `${hours}h ${mins}m`;
 };

@@ -36,3 +36,19 @@
 		background-color: $transparent-grey-hover-light;
 	}
 }
+.modal-play {
+	@include flexContainer($direction: row, $justify: center);
+	background-color: $white;
+	border-radius: 100px;
+	width: 24px;
+	height: 24px;
+}
+.modal-button {
+	@include flexContainer($direction: row, $justify: center);
+	background-color: transparent;
+	border: none;
+	border: 1px solid $white;
+	border-radius: 100px;
+	width: 24px;
+	height: 24px;
+}

@@ -4,11 +4,13 @@
 	position: absolute;
 	z-index: 100;
 	background-color: $dark-grey;
+	border-radius: 8px;
 	box-shadow: $box-shadow;
+	font-size: .8rem;
 	height: 300px;
 	opacity: 0;
 	width: 200px;
-	transform: scale(1.3);
+	transform: scale(.9);
 	transition: opacity 1.5s;
 	& img {
 		height: auto;
@@ -19,5 +21,17 @@
 .hover-modal-fade-in{
 	transform: scale(1.3);
 	opacity: 1;
+}
+
+.hover-modal-btn-container {
+	@include flexContainer($direction: row, $justify: flex-start);
+	padding: 10px;
+	width: 200px;
+	& div.modal-button, div.modal-play {
+		margin: 5px;
+	}
+	& div:last-child {
+		margin-left: auto;
+	}
 }
 
