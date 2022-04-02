@@ -155,7 +155,8 @@ html {
   background-color: transparent;
   border: none;
   fill: white;
-  height: 100%;
+  height: 300px;
+  margin-bottom: auto;
   z-index: 100;
 }
 
