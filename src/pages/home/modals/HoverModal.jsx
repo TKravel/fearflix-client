@@ -8,11 +8,13 @@ import { PlayIcon } from '../../../svg/PlayIcon';
 import { PlusIcon } from '../../../svg/PlusIcon';
 import { ThumbUpIcon } from '../../../svg/ThumbUpIcon';
 import { DownArrowIcon } from '../../../svg/DownArrowIcon';
+import { IFrame } from './IFrame';
 
 export const HoverModal = () => {
 	const dispatch = useDispatch();
 	const modalStatus = useSelector((state) => state.modal.hoverModal);
 	const [isOpen, setIsOpen] = useState(false);
+	const [completedTransition, setCompletedTransition] = useState(false);
 
 	useEffect(() => {
 		if (modalStatus.open !== true) {
@@ -30,6 +32,9 @@ export const HoverModal = () => {
 			setTimeout(() => {
 				modal.classList.add('hover-modal-fade-in');
 			}, 200);
+			setTimeout(() => {
+				setCompletedTransition(true);
+			}, 2000);
 		}
 	}, [isOpen]);
 
@@ -37,6 +42,7 @@ export const HoverModal = () => {
 		console.log('leave');
 		dispatch(closeHover({ pos: {} }));
 		setIsOpen(false);
+		setCompletedTransition(false);
 	};
 
 	return (
@@ -52,12 +58,20 @@ export const HoverModal = () => {
 						}}
 					>
 						<div>
-							<img
-								className='movie-card-img'
-								src={
-									movieData[modalStatus.id].backdropURLs[300]
-								}
-							/>
+							{!completedTransition ? (
+								<img
+									className='movie-card-img'
+									src={
+										movieData[modalStatus.id]
+											.backdropURLs[300]
+									}
+								/>
+							) : (
+								<IFrame
+									styles='hover-iframe'
+									vidURL={movieData[modalStatus.id].video}
+								/>
+							)}
 						</div>
 						<div className='card-details'>
 							<div className='hover-modal-btn-container'>
@@ -86,20 +100,23 @@ export const HoverModal = () => {
 									}
 								/>
 							</div>
-							<p>
+							<div className='hover-modal-description'>
 								<span>
-									{movieData[modalStatus.id].imdbRating} IMDb
+									{movieData[modalStatus.id].imdbRating}% IMDb
 									rating
 								</span>
 								<span>
-									{getRating(movieData[modalStatus.id].age)}
+									{' '}
+									{getRating(
+										movieData[modalStatus.id].age
+									)}{' '}
 								</span>
 								<span>
 									{displayRuntime(
 										movieData[modalStatus.id].runtime
 									)}
 								</span>
-							</p>
+							</div>
 						</div>
 					</div>
 				</>
