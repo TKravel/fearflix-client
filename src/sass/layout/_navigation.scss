@@ -9,7 +9,7 @@ nav {
 	text-shadow: $text-shadow;
 	transition: background-color .7s;
 	width: 100%;
-	z-index: 5;
+	z-index: 50;
 	& .left-nav {
 		@include flexContainer($direction: row, $justify: flex-start);
 		& .main-logo {
