@@ -82,26 +82,12 @@ export const Carousel = ({ id, title, movieList }) => {
 		setHasShifted(true);
 	};
 
-	const hovered = () => {
-		setIsHovered(true);
-	};
-
-	const notHovered = () => {
-		setTimeout(() => {
-			setIsHovered(false);
-		}, 3000);
-	};
-
 	return (
 		<>
 			{!loading ? (
 				<div className='carousel-container'>
 					<h3>{title}</h3>
-					<div
-						className='carousel-wrapper'
-						onMouseOver={hovered}
-						onMouseLeave={notHovered}
-					>
+					<div className='carousel-wrapper'>
 						<button
 							id='prev'
 							className='carousel-button'
