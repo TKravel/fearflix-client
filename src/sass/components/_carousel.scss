@@ -23,3 +23,11 @@
 		width: 5768px;
 	}
 }
+
+.carousel-wrapper button {
+	opacity: 0;
+	transition: opacity 500ms ease-out;
+}
+.carousel-wrapper:hover button {
+	opacity: 1;
+}

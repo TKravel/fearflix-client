@@ -112,6 +112,10 @@ input {
 }
 
 html {
+  overflow-x: hidden;
+}
+
+html {
   font-family: 'helvetica neue', 'helvetica', 'arial';
   color: #f1f1f1;
 }
@@ -274,6 +278,16 @@ html {
   top: 0;
   left: -2852px;
   width: 5768px;
+}
+
+.carousel-wrapper button {
+  opacity: 0;
+  -webkit-transition: opacity 500ms ease-out;
+  transition: opacity 500ms ease-out;
+}
+
+.carousel-wrapper:hover button {
+  opacity: 1;
 }
 
 .hover-modal {

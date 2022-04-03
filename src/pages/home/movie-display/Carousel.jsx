@@ -87,7 +87,9 @@ export const Carousel = ({ id, title, movieList }) => {
 	};
 
 	const notHovered = () => {
-		setIsHovered(false);
+		setTimeout(() => {
+			setIsHovered(false);
+		}, 3000);
 	};
 
 	return (
@@ -104,14 +106,10 @@ export const Carousel = ({ id, title, movieList }) => {
 							id='prev'
 							className='carousel-button'
 							onClick={handleClick}
-							style={
-								!hasShifted
-									? { opacity: '0' }
-									: isHovered
-									? { opacity: '1' }
-									: { opacity: '0' }
+							style={!hasShifted ? { opacity: '0' } : {}}
+							disabled={
+								!hasShifted ? true : isDisabled ? true : false
 							}
-							disabled={isDisabled ? true : false}
 						>
 							<PrevArrowIcon />
 						</button>
@@ -157,9 +155,6 @@ export const Carousel = ({ id, title, movieList }) => {
 							id='next'
 							className='carousel-button'
 							onClick={handleClick}
-							style={
-								isHovered ? { opacity: '1' } : { opacity: '0' }
-							}
 							disabled={isDisabled ? true : false}
 						>
 							<NextArrowIcon />
