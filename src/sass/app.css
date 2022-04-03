@@ -299,7 +299,7 @@ html {
   border-radius: 8px;
   -webkit-box-shadow: 0px 0px 10px 1px #000000;
           box-shadow: 0px 0px 10px 1px #000000;
-  font-size: .8rem;
+  font-size: .7rem;
   height: 250px;
   width: 200px;
   opacity: 0;
@@ -338,13 +338,12 @@ html {
           flex-direction: column;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: auto 0;
 }
 
 .hover-modal-btn-container {
@@ -385,12 +384,27 @@ html {
           flex-direction: row;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-top: auto;
+  width: 100%;
+}
+
+.hover-modal-description p {
+  display: block;
+  margin: auto;
+}
+
+.hover-modal-description .movie-score {
+  color: #46d369;
+}
+
+.hover-modal-description .movie-rating {
+  border: 1px solid #ffffff;
+  padding: 0 .4rem;
 }
 
 .nav-search-icon {

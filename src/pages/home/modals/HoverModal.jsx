@@ -101,11 +101,11 @@ export const HoverModal = () => {
 								/>
 							</div>
 							<div className='hover-modal-description'>
-								<span>
+								<span className='movie-score'>
 									{movieData[modalStatus.id].imdbRating}% IMDb
 									rating
 								</span>
-								<span>
+								<span className='movie-rating'>
 									{' '}
 									{getRating(
 										movieData[modalStatus.id].age

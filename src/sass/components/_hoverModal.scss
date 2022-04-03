@@ -6,7 +6,7 @@
 	background-color: $dark-grey;
 	border-radius: 8px;
 	box-shadow: $box-shadow;
-	font-size: .8rem;
+	font-size: .7rem;
 	height: 250px;
 	width: 200px;
 	opacity: 0;
@@ -31,8 +31,7 @@
 }
 
 .card-details {
-	@include flexContainer($direction: column, $justify: space-between);
-	margin: auto 0;
+	@include flexContainer($direction: column, $justify: flex-start);
 }
 
 .hover-modal-btn-container {
@@ -48,6 +47,21 @@
 }
 
 .hover-modal-description {
-	@include flexContainer($direction: row, $justify: space-between)
+	@include flexContainer($direction: row, $justify: space-around);
+
+	margin-top: auto;
+	width: 100%;
+	& p {
+		display: block;
+		margin: auto;
+	}
+
+	& .movie-score {
+		color: $green;
+	}
+	& .movie-rating {
+		border: 1px solid $white;
+		padding: 0 .4rem;
+	}
 }
 
