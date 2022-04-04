@@ -9,13 +9,52 @@ export const Carousel = ({ id, title, movieList }) => {
 	const [carouselData, setCarouselData] = useState([]);
 	const [hasShifted, setHasShifted] = useState(false);
 	const [isDisabled, setIsDisabled] = useState(false);
-	const [isHovered, setIsHovered] = useState(false);
-	const arrShiftAmount = getCardsVisible(window.innerWidth);
-	const cardWidth = getCardWidth(window.innerWidth);
-	const cardsVisible =
-		arrShiftAmount * ((window.innerWidth / 100) * cardWidth);
-	const carouselLength = (window.innerWidth / 100) * cardWidth * 28;
-	const buttonWidth = (window.innerWidth / 100) * 5;
+	const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+	// let windowWidth = window.innerWidth;
+	let arrShiftAmount = getCardsVisible(windowWidth);
+	let cardWidth = getCardWidth(window.innerWidth);
+	let cardsVisible = arrShiftAmount * ((windowWidth / 100) * cardWidth);
+	let carouselLength = (windowWidth / 100) * cardWidth * 28;
+	let buttonWidth = (windowWidth / 100) * 5;
+
+	const carouselStyle = {
+		left: `${
+			-Math.abs(carouselLength / 2) +
+			(arrShiftAmount / 2) * cardWidth -
+			buttonWidth
+		}px`,
+	};
+
+	const setWindow = () => {
+		setWindowWidth(window.innerWidth);
+		arrShiftAmount = getCardsVisible(windowWidth);
+		cardWidth = getCardWidth(windowWidth);
+		cardsVisible = arrShiftAmount * ((windowWidth / 100) * cardWidth);
+		carouselLength = (windowWidth / 100) * cardWidth * 28;
+		buttonWidth = (windowWidth / 100) * 5;
+		// carouselStyle.left = `${
+		// 	-Math.abs(carouselLength / 2) +
+		// 	(arrShiftAmount / 2) * cardWidth +
+		// 	buttonWidth +
+		// 	7
+		// }px`;
+		// console.log(
+		// 	`${
+		// 		-Math.abs(carouselLength / 2) +
+		// 		(arrShiftAmount / 2) * cardWidth +
+		// 		buttonWidth +
+		// 		7
+		// 	}px`
+		// );
+	};
+
+	useEffect(() => {
+		window.addEventListener('resize', setWindow);
+
+		setWindow();
+
+		return () => window.removeEventListener('resize', setWindow);
+	}, []);
 
 	useEffect(() => {
 		if (carouselData.length === 0) {
@@ -111,14 +150,7 @@ export const Carousel = ({ id, title, movieList }) => {
 						<div
 							id={`carousel${id}`}
 							className='carousel'
-							style={{
-								transitionDuration: `1s`,
-								left: `${
-									-Math.abs(carouselLength / 2) +
-									buttonWidth -
-									7
-								}px`,
-							}}
+							style={carouselStyle}
 						>
 							{hasShifted === false
 								? carouselData.map((value, index) => {
@@ -126,15 +158,14 @@ export const Carousel = ({ id, title, movieList }) => {
 											index <=
 											Math.round(
 												carouselData.length / 2 -
-													arrShiftAmount / 2 +
-													1
+													arrShiftAmount / 2
 											)
 										) {
 											return (
 												<MovieCard
 													key={index}
 													index={index}
-													movieIdx={null}
+													movieIdx={value}
 												/>
 											);
 										} else {

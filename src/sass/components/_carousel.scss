@@ -30,13 +30,13 @@
 	@include responsive-sm {
 		height: 70vw;
 		& .carousel {
-			width: calc(40vw * 28)
+			// width: calc(40vw * 28)
 		}
 	}
 	@include responsive-lrg {
 		height: 25vw;
 		& .carousel {
-			width: calc(15vw * 28)
+			// width: calc(15vw * 28)
 		}
 	}
 }

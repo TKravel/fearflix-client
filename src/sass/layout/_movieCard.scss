@@ -1,7 +1,7 @@
 .movie-card-wrapper {
 	height: 100%;
 	width: 15vw;
-	padding: 3px;
+	padding: 0 3px;
 	@include responsive-sm {
 		width: 40vw
 	}
