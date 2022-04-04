@@ -19,12 +19,25 @@ export const MovieCard = ({ idx, movieIdx }) => {
 		const pos = getPos(e.target);
 		cardToExpand.pos = pos;
 		if (window.innerWidth < 501) {
-			dispatch(openFullPageModal(cardToExpand));
 			return;
 		} else {
 			setTimeout(() => {
 				dispatch(openHover(cardToExpand));
 			}, 200);
+		}
+	};
+
+	const handleClick = (e) => {
+		const card = document.getElementById(movieIdx);
+		const cardToExpand = { id: e.currentTarget.id };
+		if (card === null) {
+			return;
+		}
+		const pos = getPos(e.target);
+		cardToExpand.pos = pos;
+		if (window.innerWidth < 501) {
+			dispatch(openFullPageModal(cardToExpand));
+			return;
 		}
 	};
 
@@ -34,6 +47,7 @@ export const MovieCard = ({ idx, movieIdx }) => {
 				className='movie-card'
 				id={movieIdx}
 				onPointerOver={handleMouseEnter}
+				onClick={handleClick}
 				// onMouseLeave={handleMouseLeave}
 			>
 				{movieIdx !== null && (
