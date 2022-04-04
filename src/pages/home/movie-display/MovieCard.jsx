@@ -16,12 +16,12 @@ export const MovieCard = ({ idx, movieIdx }) => {
 		if (card === null) {
 			return;
 		}
+		const pos = getPos(e.target);
+		cardToExpand.pos = pos;
 		if (window.innerWidth < 501) {
 			dispatch(openFullPageModal(cardToExpand));
 			return;
 		} else {
-			const pos = getPos(e.target);
-			cardToExpand.pos = pos;
 			setTimeout(() => {
 				dispatch(openHover(cardToExpand));
 			}, 200);

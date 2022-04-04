@@ -9,6 +9,7 @@ const initialState = {
 	fullPageModal: {
 		open: false,
 		id: null,
+		coords: {},
 	},
 };
 
@@ -30,10 +31,12 @@ export const modalSlice = createSlice({
 		openFullPageModal: (state, action) => {
 			state.fullPageModal.open = true;
 			state.fullPageModal.id = action.payload.id;
+			state.fullPageModal.coords = action.payload.pos;
 		},
 		closeFullPageModal: (state) => {
 			state.fullPageModal.open = false;
 			state.fullPageModal.id = null;
+			state.fullPageModal.coords = {};
 		},
 	},
 });

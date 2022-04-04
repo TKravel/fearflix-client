@@ -1,14 +1,22 @@
+.full-page-modal-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: $transparent-grey-hover-dark;
+    z-index: 150;
+}
 .full-page-modal-container {
     @include flexContainer($direction: column, $justify: flex-start);
     align-items: flex-start;
     position: absolute;
-    top: 50%;
-    left: 50vw;
+    left: 50%;
     background-color: $dark-grey;
     border-radius: 6px;
     box-shadow: $box-shadow;
     height: auto;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
     width: 95vw;
     overflow: hidden;
     z-index: 200;
