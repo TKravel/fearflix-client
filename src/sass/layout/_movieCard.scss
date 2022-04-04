@@ -1,18 +1,28 @@
 .movie-card-wrapper {
-	height: 310px;
-	max-width: 206px;
-	// overflow-y: clip;
+	height: 100%;
+	width: 15vw;
+	padding: 3px;
+	@include responsive-sm {
+		width: 40vw
+	}
+
+	@include responsive-med {
+		width: 22.5vw
+	}
+	
 }
 
 .movie-card {
 	@include flexContainer($direction: row, $justify: center);
 	border-radius: 6px;
-	margin: 0 3px;
-	height: 300px;
+	
+	height: 100%;
 	overflow: hidden;
-	width: 200px;
+	width: 100%;
+	
 	& img {
-		height: 300px;
-		width: 200px;
+		
+		height: 100%;
+		width: 100%;
 	}
 }

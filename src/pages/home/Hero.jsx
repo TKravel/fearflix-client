@@ -12,10 +12,6 @@ export const Hero = () => {
 			className='hero'
 			style={{
 				backgroundImage: `url(${imageURL})`,
-				backgroundRepeat: 'no-repeat',
-				backgroundPosition: 'center',
-				backgroundSize: 'cover',
-				width: '100%',
 			}}
 		>
 			<div className='hero-details'>

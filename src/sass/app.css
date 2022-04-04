@@ -159,13 +159,14 @@ html {
   background-color: transparent;
   border: none;
   fill: white;
-  height: 300px;
+  height: 100%;
+  width: 4vw;
   margin-bottom: auto;
   z-index: 100;
 }
 
 .carousel-button:hover {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal-play {
@@ -227,6 +228,10 @@ html {
   color: #ffffff;
 }
 
+.carousel-container {
+  margin-bottom: 3rem;
+}
+
 .carousel-container h3 {
   padding: 0 0 16px 32px;
   font-size: 1.2rem;
@@ -249,7 +254,10 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 320px;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  height: 34vw;
   position: relative;
   width: 100%;
   overflow-x: hidden;
@@ -272,12 +280,32 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
+  height: 100%;
   position: absolute;
   top: 0;
-  left: -2852px;
-  width: 5768px;
+}
+
+@media screen and (min-width: 1px) and (max-width: 500px) {
+  .carousel-wrapper {
+    height: 70vw;
+  }
+  .carousel-wrapper .carousel {
+    width: calc(40vw * 28);
+  }
+}
+
+@media screen and (min-width: 900px) and (max-width: 1440px) {
+  .carousel-wrapper {
+    height: 25vw;
+  }
+  .carousel-wrapper .carousel {
+    width: calc(15vw * 28);
+  }
 }
 
 .carousel-wrapper button {
@@ -503,6 +531,12 @@ footer a:hover {
   text-decoration: underline;
 }
 
+@media screen and (min-width: 1px) and (max-width: 500px) {
+  footer li {
+    width: 50%;
+  }
+}
+
 .footer-social {
   margin-bottom: .5rem;
 }
@@ -522,12 +556,25 @@ footer a:hover {
 
 .hero {
   position: relative;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100vw;
   height: 100vh;
   text-shadow: 0px 1px 6px rgba(0, 0, 0, 0.8);
-  width: 100vw;
 }
 
-.hero .hero-details {
+@media screen and (min-width: 1px) and (max-width: 500px) {
+  .hero {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100vw;
+    height: auto;
+  }
+}
+
+.hero-details {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -552,22 +599,22 @@ footer a:hover {
   width: 35vw;
 }
 
-.hero h1 {
+.hero-details h1 {
   font-size: 1.4rem;
   font-weight: 800;
   margin-bottom: 0.5rem;
 }
 
-.hero p {
+.hero-details p {
   margin-bottom: 0.5rem;
 }
 
-.hero button {
+.hero-details button {
   font-size: 1rem;
   margin: 0 0.5rem 0 0;
 }
 
-.hero .rating-container {
+.rating-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -589,7 +636,7 @@ footer a:hover {
   height: 80%;
 }
 
-.hero .rating-container p {
+.rating-container p {
   background-color: rgba(109, 109, 110, 0.5);
   border-left: 3px solid #ffffff;
   font-weight: 600;
@@ -598,8 +645,21 @@ footer a:hover {
 }
 
 .movie-card-wrapper {
-  height: 310px;
-  max-width: 206px;
+  height: 100%;
+  width: 15vw;
+  padding: 3px;
+}
+
+@media screen and (min-width: 1px) and (max-width: 500px) {
+  .movie-card-wrapper {
+    width: 40vw;
+  }
+}
+
+@media screen and (min-width: 500px) and (max-width: 900px) {
+  .movie-card-wrapper {
+    width: 22.5vw;
+  }
 }
 
 .movie-card {
@@ -619,15 +679,14 @@ footer a:hover {
       -ms-flex-align: center;
           align-items: center;
   border-radius: 6px;
-  margin: 0 3px;
-  height: 300px;
+  height: 100%;
   overflow: hidden;
-  width: 200px;
+  width: 100%;
 }
 
 .movie-card img {
-  height: 300px;
-  width: 200px;
+  height: 100%;
+  width: 100%;
 }
 
 nav {
@@ -708,16 +767,9 @@ nav .right-nav {
   background-color: #141414;
 }
 
-.move-display-wrapper {
-  position: relative;
+#movie-display-container {
   background-color: #141414;
-  height: 1080px;
   padding: 2rem 0;
-}
-
-.move-display-container {
-  position: absolute;
-  margin-top: -100px;
   width: 100%;
 }
 

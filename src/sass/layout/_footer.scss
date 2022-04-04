@@ -22,6 +22,11 @@ footer {
             text-decoration: underline;
         }
     }
+    @include responsive-sm {
+        li {
+            width: 50%;
+        }
+    }
 }
 
 .footer-social {

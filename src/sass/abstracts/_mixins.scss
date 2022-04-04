@@ -5,3 +5,21 @@
 	justify-content: $justify;
 	align-items: center;
 }
+
+@mixin responsive-sm {
+	@media screen and (min-width: 1px) and (max-width: $small-breakpoint){
+		@content;
+	}
+}
+
+@mixin responsive-med {
+	@media screen and (min-width: $small-breakpoint) and (max-width: $med-breakpoint){
+		@content;
+	}
+}
+
+@mixin responsive-lrg {
+	@media screen and (min-width: $med-breakpoint) and (max-width: $large-breakpoint){
+		@content;
+	}
+}

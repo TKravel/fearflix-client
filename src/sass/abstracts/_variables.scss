@@ -5,8 +5,13 @@ $white-hover: rgba(255, 255, 255, 0.75);
 $transparent-grey: rgba(109, 109, 110, 0.7);
 $transparent-grey-hover: rgba(109, 109, 110, 0.5);
 $transparent-grey-hover-light: rgba(0, 0, 0, 0.3);
+$transparent-grey-hover-dark: rgba(0, 0, 0, 0.5);
 
 $dark-grey: #141414;
 $med-grey: #141414;
 
 $green: #46d369;
+
+$small-breakpoint: 500px;
+$med-breakpoint: 900px;
+$large-breakpoint: 1440px;

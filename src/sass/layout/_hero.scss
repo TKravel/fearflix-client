@@ -1,16 +1,27 @@
 .hero {
 	position: relative;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	width: 100vw;
 	height: 100vh;
 	text-shadow: $text-shadow;
-	width: 100vw;
-	& .hero-details {
-		@include flexContainer($direction: column, $justify: flex-end);
-		align-items: flex-start;
-		font-weight: 600;
-		margin-left: 5rem;
-		height: 80%;
-		width: 35vw;
+	@include responsive-sm {
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		width: 100vw;
+		height: auto;
 	}
+}
+
+.hero-details {
+	@include flexContainer($direction: column, $justify: flex-end);
+	align-items: flex-start;
+	font-weight: 600;
+	margin-left: 5rem;
+	height: 80%;
+	width: 35vw;
 	& h1 {
 		font-size: 1.4rem;
 		font-weight: 800;
@@ -23,18 +34,19 @@
 		font-size: 1rem;
 		margin: 0 0.5rem 0 0;
 	}
-	& .rating-container {
-		@include flexContainer($direction: column, $justify: flex-end);
-		position: absolute;
-		right: 0;
-		top: 0;
-		height: 80%;
-		& p {
-			background-color: $transparent-grey-hover;
-			border-left: 3px solid $white;
-			font-weight: 600;
-			padding: 0.3rem 2.5rem 0.3rem 0.6rem;
-			text-shadow: $text-shadow;
-		}
+}
+
+.rating-container {
+	@include flexContainer($direction: column, $justify: flex-end);
+	position: absolute;
+	right: 0;
+	top: 0;
+	height: 80%;
+	& p {
+		background-color: $transparent-grey-hover;
+		border-left: 3px solid $white;
+		font-weight: 600;
+		padding: 0.3rem 2.5rem 0.3rem 0.6rem;
+		text-shadow: $text-shadow;
 	}
 }

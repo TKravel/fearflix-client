@@ -22,3 +22,23 @@ const getElementYOffset = (element) => {
 
 	return distanceFromTopOfPage;
 };
+
+export const getCardsVisible = (width) => {
+	if (width < 500) {
+		return 2;
+	} else if (width < 900) {
+		return 4;
+	} else {
+		return 6;
+	}
+};
+
+export const getCardWidth = (width) => {
+	if (width < 500) {
+		return 40;
+	} else if (width < 900) {
+		return 22.5;
+	} else {
+		return 15;
+	}
+};

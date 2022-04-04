@@ -28,25 +28,23 @@ export const MovieDisplayContainer = () => {
 	return (
 		<>
 			{!loading ? (
-				<section className='move-display-wrapper'>
-					<div className='move-display-container'>
-						<Carousel
-							id='carousel1'
-							title='Thrilling horrors'
-							movieList={movieLists[0]}
-						/>
-						<Carousel
-							id='carousel2'
-							title='Cheap scares'
-							movieList={movieLists[1]}
-						/>
-						<Carousel
-							id='carousel3'
-							title='Classics'
-							movieList={movieLists[2]}
-						/>
-					</div>
-				</section>
+				<div id='movie-display-container'>
+					<Carousel
+						id='carousel1'
+						title='Thrilling horrors'
+						movieList={movieLists[0]}
+					/>
+					<Carousel
+						id='carousel2'
+						title='Cheap scares'
+						movieList={movieLists[1]}
+					/>
+					<Carousel
+						id='carousel3'
+						title='Classics'
+						movieList={movieLists[2]}
+					/>
+				</div>
 			) : null}
 		</>
 	);

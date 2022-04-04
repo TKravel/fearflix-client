@@ -11,27 +11,6 @@ export const MovieCard = ({ idx, movieIdx }) => {
 
 	console.log('rendered');
 
-	// useEffect(() => {
-	// 	if (card === null) {
-	// 		return;
-	// 	}
-
-	// 	const handleMouseEnter = (e) => {
-	// 		console.log('Hovered');
-	// 		const cardHovered = { id: e.target.id };
-	// 		const pos = getPos(e.target);
-	// 		cardHovered.pos = pos;
-	// 		dispatch(openHover(cardHovered));
-	// 		setIsHovered(true);
-	// 	};
-
-	// 	card.addEventListener('mouseenter', (e) => handleMouseEnter(e));
-
-	// 	return function cleanUp() {
-	// 		card.removeEventListener('mouseenter', handleMouseEnter);
-	// 	};
-	// }, []);
-
 	const handleMouseEnter = (e) => {
 		if (card === null) {
 			return;
@@ -47,29 +26,6 @@ export const MovieCard = ({ idx, movieIdx }) => {
 		// setIsHovered(true);
 	};
 
-	// useEffect(() => {
-	// 	if (card === null) {
-	// 		return;
-	// 	}
-	// const handleMouseLeave = () => {
-	// 	console.log('not hovered');
-	// 	dispatch(closeHover());
-	// 	setIsHovered(false);
-	// };
-
-	// 	card.addEventListener('mouseleave', handleMouseLeave);
-	// 	return function clean() {
-	// 		card.removeEventListener('mouseleave', handleMouseLeave);
-	// 	};
-	// }, []);
-	// const handleMouseLeave = () => {
-	// 	if (card === null) {
-	// 		return;
-	// 	}
-	// 	console.log('not hovered');
-	// 	dispatch(closeHover({ pos: {} }));
-	// 	// setIsHovered(false);
-	// };
 	return (
 		<div className='movie-card-wrapper'>
 			<div
@@ -80,12 +36,11 @@ export const MovieCard = ({ idx, movieIdx }) => {
 			>
 				{movieIdx !== null && (
 					<>
-						<div>
-							<img
-								className='movie-card-img'
-								src={movieData[movieIdx].posterURLs[342]}
-							/>
-						</div>
+						<img
+							className='movie-card-img'
+							src={movieData[movieIdx].posterURLs[342]}
+						/>
+
 						<div className='card-anchor'></div>
 					</>
 				)}
