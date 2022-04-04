@@ -1,29 +1,31 @@
 import { useEffect, useState } from 'react';
 import { movieData } from '../../../data';
 import { useDispatch } from 'react-redux';
-import { openHover, closeHover } from '../../../features/modals/modalSlice';
+import {
+	openHover,
+	openFullPageModal,
+} from '../../../features/modals/modalSlice';
 import { getPos } from '../../../utils/carouselUtils';
 
 export const MovieCard = ({ idx, movieIdx }) => {
 	const dispatch = useDispatch();
-	// const [isHovered, setIsHovered] = useState(false);
-	const card = document.getElementById(movieIdx);
-
-	console.log('rendered');
 
 	const handleMouseEnter = (e) => {
+		const card = document.getElementById(movieIdx);
+		const cardToExpand = { id: e.currentTarget.id };
 		if (card === null) {
 			return;
 		}
-		console.log(e.target.id);
-		console.log('enter');
-		const cardHovered = { id: e.currentTarget.id };
-		const pos = getPos(e.target);
-		cardHovered.pos = pos;
-		setTimeout(() => {
-			dispatch(openHover(cardHovered));
-		}, 200);
-		// setIsHovered(true);
+		if (window.innerWidth < 501) {
+			dispatch(openFullPageModal(cardToExpand));
+			return;
+		} else {
+			const pos = getPos(e.target);
+			cardToExpand.pos = pos;
+			setTimeout(() => {
+				dispatch(openHover(cardToExpand));
+			}, 200);
+		}
 	};
 
 	return (

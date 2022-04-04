@@ -9,6 +9,7 @@ import { Hero } from './pages/home/Hero';
 import { Footer } from './pages/home/Footer';
 import { MovieDisplayContainer } from './pages/home/movie-display/MovieDisplayContainer';
 import { HoverModal } from './pages/home/modals/HoverModal';
+import { FullPageModal } from './pages/home/modals/FullPageModal';
 
 function App() {
 	const dispatch = useDispatch();
@@ -23,6 +24,7 @@ function App() {
 			<MovieDisplayContainer />
 			<Footer />
 			<HoverModal />
+			<FullPageModal />
 		</div>
 	);
 }

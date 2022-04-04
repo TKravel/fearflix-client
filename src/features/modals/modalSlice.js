@@ -6,6 +6,10 @@ const initialState = {
 		details: {},
 		id: null,
 	},
+	fullPageModal: {
+		open: false,
+		id: null,
+	},
 };
 
 export const modalSlice = createSlice({
@@ -23,9 +27,18 @@ export const modalSlice = createSlice({
 			state.hoverModal.id = null;
 			state.hoverModal.details = action.payload.pos;
 		},
+		openFullPageModal: (state, action) => {
+			state.fullPageModal.open = true;
+			state.fullPageModal.id = action.payload.id;
+		},
+		closeFullPageModal: (state) => {
+			state.fullPageModal.open = false;
+			state.fullPageModal.id = null;
+		},
 	},
 });
 
-export const { openHover, closeHover } = modalSlice.actions;
+export const { openHover, closeHover, openFullPageModal, closeFullPageModal } =
+	modalSlice.actions;
 
 export default modalSlice.reducer;

@@ -44,6 +44,9 @@
 .carousel-wrapper button {
 	opacity: 0;
 	transition: opacity 500ms ease-out;
+	@include responsive-sm{
+		opacity: 1;
+	}
 }
 .carousel-wrapper:hover button {
 	opacity: 1;
