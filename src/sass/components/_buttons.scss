@@ -65,3 +65,9 @@
 .footer-button:hover{
 	color: $white;
 }
+.carousel-button-icon{
+	@include responsive-sm{
+		height: 14px;
+		width: 14px;
+	}
+}

@@ -145,7 +145,7 @@ export const Carousel = ({ id, title, movieList }) => {
 								!hasShifted ? true : isDisabled ? true : false
 							}
 						>
-							<PrevArrowIcon />
+							<PrevArrowIcon styles='carousel-button-icon' />
 						</button>
 						<div
 							id={`carousel${id}`}
@@ -194,7 +194,7 @@ export const Carousel = ({ id, title, movieList }) => {
 							onClick={handleClick}
 							disabled={isDisabled ? true : false}
 						>
-							<NextArrowIcon />
+							<NextArrowIcon styles='carousel-button-icon' />
 						</button>
 					</div>
 				</div>

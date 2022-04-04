@@ -228,6 +228,13 @@ html {
   color: #ffffff;
 }
 
+@media screen and (min-width: 1px) and (max-width: 500px) {
+  .carousel-button-icon {
+    height: 14px;
+    width: 14px;
+  }
+}
+
 .carousel-container {
   margin-bottom: 3rem;
 }
