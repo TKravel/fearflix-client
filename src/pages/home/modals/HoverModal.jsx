@@ -34,7 +34,7 @@ export const HoverModal = () => {
 			}, 200);
 			setTimeout(() => {
 				setCompletedTransition(true);
-			}, 2000);
+			}, 3000);
 		}
 	}, [isOpen]);
 
@@ -78,7 +78,7 @@ export const HoverModal = () => {
 								<ModalButton
 									styles='modal-play'
 									buttonIcon={
-										<PlayIcon styles='modal-icon' />
+										<PlayIcon styles='modal-play-icon' />
 									}
 								/>
 								<ModalButton

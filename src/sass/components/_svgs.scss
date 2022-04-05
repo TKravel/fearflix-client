@@ -25,10 +25,16 @@
 	color: #000;
 }
 
+.modal-play-icon {
+	height: 14px;
+	margin-left: 2px;
+	width: 14px;
+}
+
 .modal-icon {
 	height: 14px;
 	width: 14px;
-	stroke: $white;
+	fill: $white;
 }
 
 .modal-close-icon {

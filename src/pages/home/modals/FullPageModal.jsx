@@ -20,6 +20,19 @@ export const FullPageModal = () => {
 		dispatch(closeFullPageModal());
 	};
 
+	const getCast = (arr) => {
+		let displayableCastString = '';
+
+		for (let i = 0; i <= arr.length - 1; i++) {
+			if (i === arr.length - 1) {
+				displayableCastString += ` ${arr[i]}.`;
+			} else {
+				displayableCastString += ` ${arr[i]},`;
+			}
+		}
+		return displayableCastString;
+	};
+
 	useEffect(() => {
 		if (modalStatus.open !== true) {
 			if (isOpen === true) {
@@ -35,7 +48,7 @@ export const FullPageModal = () => {
 				<div className='full-page-modal-wrapper'>
 					<div
 						className='full-page-modal-container'
-						style={{ top: modalStatus.coords.y }}
+						// style={{ top: modalStatus.coords.y }}
 					>
 						<button
 							className='modal-close-button'
@@ -50,7 +63,9 @@ export const FullPageModal = () => {
 						<div className='hover-modal-btn-container'>
 							<ModalButton
 								styles='modal-play'
-								buttonIcon={<PlayIcon styles='modal-icon' />}
+								buttonIcon={
+									<PlayIcon styles='modal-play-icon' />
+								}
 							/>
 							<ModalButton
 								styles='modal-button'
@@ -60,12 +75,8 @@ export const FullPageModal = () => {
 								styles='modal-button'
 								buttonIcon={<ThumbUpIcon styles='modal-icon' />}
 							/>
-							{/* <ModalButton
-							styles='modal-button'
-							buttonIcon={<DownArrowIcon styles='modal-icon' />}
-						/> */}
 						</div>
-						<div className='hover-modal-description'>
+						<p className='full-page-modal-description'>
 							<span className='movie-score'>
 								{movieData[modalStatus.id].imdbRating}% IMDb
 								rating
@@ -79,9 +90,17 @@ export const FullPageModal = () => {
 									movieData[modalStatus.id].runtime
 								)}
 							</span>
+						</p>
+						<div className='full-page-modal-details'>
+							<h1>{movieData[modalStatus.id].title}</h1>
+							<p>{movieData[modalStatus.id].overview}</p>
 						</div>
-						<h1>{movieData[modalStatus.id].title}</h1>
-						<p>{movieData[modalStatus.id].overview}</p>
+						<div className='full-page-modal-people'>
+							<p>
+								<span>Cast: </span>
+								{getCast(movieData[modalStatus.id].cast)}
+							</p>
+						</div>
 					</div>
 				</div>
 			)}

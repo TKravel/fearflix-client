@@ -2,6 +2,7 @@ import { Carousel } from './Carousel';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { movieData } from '../../../data';
+import { MobileCarousel } from './MobileCarousel';
 
 export const MovieDisplayContainer = () => {
 	const [movieLists, setMovieLists] = useState([]);
@@ -27,7 +28,7 @@ export const MovieDisplayContainer = () => {
 
 	return (
 		<>
-			{!loading ? (
+			{loading ? null : window.innerWidth > 500 ? (
 				<div id='movie-display-container'>
 					<Carousel
 						id='carousel1'
@@ -45,7 +46,25 @@ export const MovieDisplayContainer = () => {
 						movieList={movieLists[2]}
 					/>
 				</div>
-			) : null}
+			) : (
+				<div id='movie-display-container'>
+					<MobileCarousel
+						id='carousel1'
+						title='Thrilling horrors'
+						movieList={movieLists[0]}
+					/>
+					<MobileCarousel
+						id='carousel2'
+						title='Cheap scares'
+						movieList={movieLists[1]}
+					/>
+					<MobileCarousel
+						id='carousel3'
+						title='Classics'
+						movieList={movieLists[2]}
+					/>
+				</div>
+			)}
 		</>
 	);
 };

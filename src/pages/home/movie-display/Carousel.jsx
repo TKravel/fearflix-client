@@ -32,20 +32,6 @@ export const Carousel = ({ id, title, movieList }) => {
 		cardsVisible = arrShiftAmount * ((windowWidth / 100) * cardWidth);
 		carouselLength = (windowWidth / 100) * cardWidth * 28;
 		buttonWidth = (windowWidth / 100) * 5;
-		// carouselStyle.left = `${
-		// 	-Math.abs(carouselLength / 2) +
-		// 	(arrShiftAmount / 2) * cardWidth +
-		// 	buttonWidth +
-		// 	7
-		// }px`;
-		// console.log(
-		// 	`${
-		// 		-Math.abs(carouselLength / 2) +
-		// 		(arrShiftAmount / 2) * cardWidth +
-		// 		buttonWidth +
-		// 		7
-		// 	}px`
-		// );
 	};
 
 	useEffect(() => {
@@ -59,7 +45,6 @@ export const Carousel = ({ id, title, movieList }) => {
 	useEffect(() => {
 		if (carouselData.length === 0) {
 			setCarouselData(movieList);
-			console.log(carouselData);
 			setLoading(false);
 		}
 	}, [carouselData]);
