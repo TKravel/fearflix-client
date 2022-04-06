@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import { BellIcon } from '../../svg/BellIcon';
+import { DownArrowSolidIcon } from '../../svg/DownArrowSolidIcon';
 import { SearchIcon } from '../../svg/SearchIcon';
+import { UserDropdown } from './UserDropdown';
 
 export const Nav = () => {
 	useEffect(() => {
@@ -34,7 +36,19 @@ export const Nav = () => {
 				<li>
 					<BellIcon styles='nav-alerts-icon' />
 				</li>
-				<li>Profile</li>
+				<li>
+					<div className='account-settings'>
+						<div>
+							<span>Profile</span>
+						</div>
+						<div>
+							<DownArrowSolidIcon />
+						</div>
+						<div className='user-dropdown'>
+							<UserDropdown />
+						</div>
+					</div>
+				</li>
 			</ul>
 		</nav>
 	);

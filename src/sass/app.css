@@ -927,7 +927,7 @@ nav {
   z-index: 50;
 }
 
-nav .left-nav {
+.left-nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -945,17 +945,17 @@ nav .left-nav {
           align-items: center;
 }
 
-nav .left-nav .main-logo {
+.left-nav .main-logo {
   height: 1.8rem;
   margin: 0 1.5rem 0 2rem;
 }
 
-nav .left-nav .nav-li-item {
+.left-nav .nav-li-item {
   font-size: 0.8rem;
   margin: 0 0.7rem;
 }
 
-nav .right-nav {
+.right-nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -971,6 +971,33 @@ nav .right-nav {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
+}
+
+.right-nav .account-settings {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.user-dropdown {
+  position: absolute;
+  top: 4rem;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.75);
 }
 
 .nav-scrolled {

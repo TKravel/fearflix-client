@@ -10,21 +10,35 @@ nav {
 	transition: background-color .7s;
 	width: 100%;
 	z-index: 50;
-	& .left-nav {
-		@include flexContainer($direction: row, $justify: flex-start);
-		& .main-logo {
-			height: 1.8rem;
-			margin: 0 1.5rem 0 2rem;
-		}
+	
+}
+.left-nav {
+	@include flexContainer($direction: row, $justify: flex-start);
+	& .main-logo {
+		height: 1.8rem;
+		margin: 0 1.5rem 0 2rem;
+	}
 
-		& .nav-li-item {
-			font-size: 0.8rem;
-			margin: 0 0.7rem;
-		}
+	& .nav-li-item {
+		font-size: 0.8rem;
+		margin: 0 0.7rem;
 	}
-	& .right-nav {
-		@include flexContainer($direction: row, $justify: flex-end);
+}
+.right-nav {
+	@include flexContainer($direction: row, $justify: flex-end);
+position: relative;
+	& .account-settings {
+		@include flexContainer($direction: row, $justify: center);
+		
 	}
+}
+
+.user-dropdown {
+	position: absolute;
+	top: 4rem;
+	right: 0;
+	background-color: $transparent-grey-hover-dark;
+	border: 1px solid $white-hover;
 }
 
 .nav-scrolled {

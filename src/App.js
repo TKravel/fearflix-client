@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { fetchMovies } from './features/movies/movieSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { movieData } from './data';
-import { Nav } from './pages/home/Nav';
+import { Nav } from './pages/navbar/Nav';
 import { Hero } from './pages/home/Hero';
 import { Footer } from './pages/home/Footer';
 import { MovieDisplayContainer } from './pages/home/movie-display/MovieDisplayContainer';
