@@ -23,9 +23,12 @@
     z-index: 200;
     & .full-page-iframe {
         border: none;
-		height: auto;
+		height: 80vh;
 		padding: 0;
 		width: 100%;
+        @include responsive-sm{
+            height: 30vh;
+        }
     }
     & .hover-modal-description {
         margin-top: 0;

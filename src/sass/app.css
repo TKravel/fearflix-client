@@ -380,9 +380,15 @@ html {
 
 .full-page-modal-container .full-page-iframe {
   border: none;
-  height: auto;
+  height: 80vh;
   padding: 0;
   width: 100%;
+}
+
+@media screen and (min-width: 1px) and (max-width: 500px) {
+  .full-page-modal-container .full-page-iframe {
+    height: 30vh;
+  }
 }
 
 .full-page-modal-container .hover-modal-description {
@@ -920,6 +926,7 @@ nav {
   left: 0;
   background-color: transparent;
   height: 4rem;
+  padding: 0 3rem;
   text-shadow: 0px 1px 6px rgba(0, 0, 0, 0.8);
   -webkit-transition: background-color .7s;
   transition: background-color .7s;
@@ -947,7 +954,7 @@ nav {
 
 .left-nav .main-logo {
   height: 1.8rem;
-  margin: 0 1.5rem 0 2rem;
+  margin: 0 1.5rem 0 0;
 }
 
 .left-nav .nav-li-item {
@@ -972,6 +979,27 @@ nav {
       -ms-flex-align: center;
           align-items: center;
   position: relative;
+  height: 100%;
+}
+
+.right-nav .notification-menu-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  height: 4rem;
 }
 
 .right-nav .account-settings {
@@ -990,18 +1018,188 @@ nav {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
+  height: 4rem;
 }
 
 .user-dropdown {
   position: absolute;
   top: 4rem;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.85);
   border: 1px solid rgba(255, 255, 255, 0.75);
+  visibility: hidden;
+  font-size: .8rem;
+  opacity: 0;
+  width: 200px;
+  -webkit-transition: opacity 1000ms;
+  transition: opacity 1000ms;
+}
+
+.user-dropdown ul {
+  padding: 10px 0;
+}
+
+.user-dropdown ul:last-child {
+  text-align: center;
+}
+
+.user-dropdown ul:not(:last-child) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.75);
+}
+
+.user-dropdown li {
+  padding: 5px 10px;
+}
+
+.user-dropdown img {
+  margin: 0 10px 0 0;
+}
+
+.user-dropdown .user-menu-item-flex-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  margin: auto;
+  width: 80%;
+}
+
+.notification-dropdown {
+  position: absolute;
+  top: 4rem;
+  right: 0;
+  border: 1px solid #ffffff;
+  color: rgba(255, 255, 255, 0.75);
+  visibility: hidden;
+  line-height: 1.3;
+  height: 400px;
+  width: 350px;
+  overflow: hidden;
+  overflow-y: scroll;
+  opacity: 0;
+  -webkit-transition: opacity 1000ms;
+  transition: opacity 1000ms;
+}
+
+.notification-dropdown li {
+  background-color: rgba(0, 0, 0, 0.85);
+  cursor: pointer;
+}
+
+.notification-dropdown li :hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.notification-dropdown li :hover h1, .notification-dropdown li :hover div p:first-of-type {
+  color: #ffffff;
+}
+
+.notification-dropdown li:not(:last-child) {
+  border-bottom: 1px solid #ffffff;
+}
+
+.notification-dropdown a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+}
+
+.notification-dropdown a img {
+  border-radius: 10px;
+  width: 150px;
+  height: auto;
+  margin: 1rem;
+}
+
+.notification-date {
+  color: rgba(109, 109, 110, 0.5);
+  font-size: .9rem;
+  margin-top: .2rem;
+}
+
+.hide-indicator {
+  display: none;
+}
+
+.open-dropdown-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+  fill: #ffffff;
+  height: 14px;
+  width: 14px;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+}
+
+.dropdown-active {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transition: opacity 1s;
+  transition: opacity 1s;
+}
+
+.dropdown-item-icon {
+  fill: #ffffff;
+  height: 18px;
+  margin: 0 16px 2px 0;
+  width: 18px;
+}
+
+.avatar-img {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 5px;
 }
 
 .nav-scrolled {
   background-color: #141414;
+}
+
+.nav-avatar-indicator-closed {
+  width: 10px;
+  height: 10px;
+  fill: #ffffff;
+  margin-left: 4px;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  -webkit-transition: -webkit-transform 500ms;
+  transition: -webkit-transform 500ms;
+  transition: transform 500ms;
+  transition: transform 500ms, -webkit-transform 500ms;
+}
+
+.indicator-active {
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
 }
 
 #movie-display-container {

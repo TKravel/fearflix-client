@@ -48,7 +48,11 @@ export const FullPageModal = () => {
 				<div className='full-page-modal-wrapper'>
 					<div
 						className='full-page-modal-container'
-						// style={{ top: modalStatus.coords.y }}
+						style={
+							modalStatus.coords.y
+								? { top: modalStatus.coords.y }
+								: {}
+						}
 					>
 						<button
 							className='modal-close-button'
