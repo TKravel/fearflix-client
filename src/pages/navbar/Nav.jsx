@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { BellIcon } from '../../svg/BellIcon';
 import { DownArrowSolidIcon } from '../../svg/DownArrowSolidIcon';
 import { SearchIcon } from '../../svg/SearchIcon';
@@ -18,6 +18,24 @@ export const Nav = () => {
 			}
 		};
 	});
+
+	const searchBoxOpen = () => {
+		const searchBox = document.getElementsByClassName('search-box')[0];
+		const searchInput = document.getElementsByClassName('search-input')[0];
+		searchBox.classList.add('add-border');
+		searchInput.classList.add('search-box-active');
+		searchInput.focus();
+	};
+
+	const searchBoxClose = (e) => {
+		console.log(e.target);
+		console.log('click');
+		const searchBox = document.getElementsByClassName('search-box')[0];
+		const searchInput = document.getElementsByClassName('search-input')[0];
+
+		searchBox.classList.remove('add-border');
+		searchInput.classList.remove('search-box-active');
+	};
 
 	const notificationMouseOver = () => {
 		const notficationDropdown = document.getElementsByClassName(
@@ -77,7 +95,7 @@ export const Nav = () => {
 						alt='Fearflix logo'
 					/>
 				</li>
-				<li className='nav-li-item'>Home</li>
+				<li className='nav-li-item active'>Home</li>
 				<li className='nav-li-item'>TV Shows</li>
 				<li className='nav-li-item'>Movies</li>
 				<li className='nav-li-item'>New & Popular</li>
@@ -85,7 +103,18 @@ export const Nav = () => {
 			</ul>
 			<ul className='right-nav'>
 				<li>
-					<SearchIcon styles='nav-search-icon' />
+					<div
+						className='search-box'
+						onClick={searchBoxOpen}
+						onBlur={searchBoxClose}
+					>
+						<SearchIcon styles='nav-search-icon' />
+						<input
+							className='search-input'
+							type='text'
+							placeholder='Titles, people, genres'
+						/>
+					</div>
 				</li>
 				<li>
 					<div

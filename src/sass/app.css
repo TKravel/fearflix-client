@@ -664,9 +664,9 @@ html {
 
 .nav-alerts-icon {
   fill: #ffffff;
-  height: 16px;
-  width: 16px;
-  margin: 0 0.5rem;
+  height: 20px;
+  width: 28px;
+  margin: 0 1rem 0 .5rem;
 }
 
 .hero-play-icon {
@@ -958,8 +958,17 @@ nav {
 }
 
 .left-nav .nav-li-item {
+  color: rgba(255, 255, 255, 0.75);
   font-size: 0.8rem;
   margin: 0 0.7rem;
+}
+
+.left-nav .active {
+  color: #ffffff;
+}
+
+.left-nav .nav-li-item:not(.active):hover {
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .right-nav {
@@ -998,6 +1007,7 @@ nav {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  cursor: pointer;
   position: relative;
   height: 4rem;
 }
@@ -1018,6 +1028,7 @@ nav {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  cursor: pointer;
   position: relative;
   height: 4rem;
 }
@@ -1028,6 +1039,7 @@ nav {
   right: 0;
   background-color: rgba(0, 0, 0, 0.85);
   border: 1px solid rgba(255, 255, 255, 0.75);
+  cursor: default;
   visibility: hidden;
   font-size: .8rem;
   opacity: 0;
@@ -1050,6 +1062,10 @@ nav {
 
 .user-dropdown li {
   padding: 5px 10px;
+}
+
+.user-dropdown li:hover {
+  text-decoration: underline;
 }
 
 .user-dropdown img {
@@ -1076,6 +1092,56 @@ nav {
       flex-wrap: nowrap;
   margin: auto;
   width: 80%;
+}
+
+.search-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: none;
+  cursor: pointer;
+  padding: 8px 0;
+  -webkit-transition: border 500ms;
+  transition: border 500ms;
+}
+
+.search-input {
+  background-color: inherit;
+  border: none;
+  color: #ffffff;
+  width: 0;
+  -webkit-transition: width 500ms;
+  transition: width 500ms;
+}
+
+.search-input::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.search-input:focus {
+  caret-color: #ffffff;
+  outline: none;
+}
+
+.add-border {
+  background-color: rgba(0, 0, 0, 0.85);
+  border: 1px solid #ffffff;
+}
+
+.search-box-active {
+  width: 200px;
 }
 
 .notification-dropdown {

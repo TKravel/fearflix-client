@@ -21,8 +21,15 @@ nav {
 	}
 
 	& .nav-li-item {
+		color: $white-hover;
 		font-size: 0.8rem;
 		margin: 0 0.7rem;
+	}
+	& .active {
+		color: $white;
+	}
+	& .nav-li-item:not(.active):hover{
+		color: $white-hover-light;
 	}
 }
 .right-nav {
@@ -32,12 +39,14 @@ nav {
 
 	& .notification-menu-container {
 		@include flexContainer($direction: row, $justify: center);
+		cursor: pointer;
 		position: relative;
 		height: 4rem;
 	}
 
 	& .account-settings {
 		@include flexContainer($direction: row, $justify: center);
+		cursor: pointer;
 		position: relative;
 		height: 4rem;
 	}
@@ -49,6 +58,7 @@ nav {
 	right: 0;
 	background-color: $dropdown-background;
 	border: 1px solid $white-hover;
+	cursor: default;
 	visibility: hidden;
 	font-size: .8rem;
 	opacity: 0;
@@ -66,6 +76,9 @@ nav {
 	& li {
 		padding: 5px 10px;
 	}
+	& li:hover {
+		text-decoration: underline;
+	}
 	& img {
 		margin: 0 10px 0 0;
 	}
@@ -75,6 +88,38 @@ nav {
 		margin: auto;
 		width: 80%;
 	}
+}
+
+.search-box{
+	@include flexContainer($direction: row, $justify: center);
+	border: none;
+	cursor: pointer;
+	padding: 8px 0;
+	transition: border 500ms;
+}
+
+.search-input {
+	background-color: inherit;
+	border: none;
+	color: $white;
+	width: 0;
+	transition: width 500ms;
+}
+.search-input::-webkit-input-placeholder {
+	color: $white-hover;
+}
+.search-input:focus{
+	caret-color: $white;
+	outline: none;
+}
+
+.add-border {
+	background-color: $dropdown-background;
+border: 1px solid $white;
+}
+
+.search-box-active {
+	width: 200px;
 }
 
 .notification-dropdown {
