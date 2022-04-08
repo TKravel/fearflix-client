@@ -42,8 +42,8 @@
 	@include flexContainer($direction: row, $justify: center);
 	background-color: $white;
 	border-radius: 100px;
-	width: 24px;
-	height: 24px;
+	width: 34px;
+	height: 34px;
 }
 .modal-button {
 	@include flexContainer($direction: row, $justify: center);
@@ -51,14 +51,14 @@
 	border: none;
 	border: 1px solid $white;
 	border-radius: 100px;
-	width: 24px;
-	height: 24px;
+	width: 34px;
+	height: 34px;
 }
 .footer-button {
 	background-color: transparent;
 	border: 1px solid $transparent-grey;
 	color: $transparent-grey;
-	cursor: pointer;
+	cursor: default;
 	margin-bottom: 1rem;
 	padding: .5rem 1rem;
 	

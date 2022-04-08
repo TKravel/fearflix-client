@@ -18,9 +18,12 @@
     box-shadow: $box-shadow;
     height: auto;
     transform: translate(-50%, -50%);
-    width: 95vw;
+    width: 60vw;
     overflow: hidden;
     z-index: 200;
+    @include responsive-sm{
+        width: 90vw;
+    }
     & .full-page-iframe {
         border: none;
 		height: 80vh;

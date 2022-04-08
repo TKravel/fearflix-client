@@ -24,6 +24,9 @@ nav {
 		color: $white-hover;
 		font-size: 0.8rem;
 		margin: 0 0.7rem;
+		@include responsive-sm{
+		display: none;
+		}
 	}
 	& .active {
 		color: $white;
@@ -31,6 +34,7 @@ nav {
 	& .nav-li-item:not(.active):hover{
 		color: $white-hover-light;
 	}
+	
 }
 .right-nav {
 	@include flexContainer($direction: row, $justify: flex-end);

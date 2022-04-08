@@ -1,13 +1,17 @@
 import { movieData } from '../../../data';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
 	openHover,
+	setHoverStatus,
 	openFullPageModal,
 } from '../../../features/modals/modalSlice';
 import { getPos } from '../../../utils/carouselUtils';
 
 export const MovieCard = ({ idx, movieIdx }) => {
 	const dispatch = useDispatch();
+	const isTransitioning = useSelector(
+		(state) => state.modal.hoverModal.isTransitioning
+	);
 
 	const handleMouseEnter = (e) => {
 		const card = document.getElementById(movieIdx);
@@ -21,6 +25,7 @@ export const MovieCard = ({ idx, movieIdx }) => {
 			return;
 		} else {
 			setTimeout(() => {
+				dispatch(setHoverStatus(true));
 				dispatch(openHover(cardToExpand));
 			}, 200);
 		}
@@ -45,7 +50,7 @@ export const MovieCard = ({ idx, movieIdx }) => {
 			<div
 				className='movie-card'
 				id={movieIdx}
-				onPointerOver={handleMouseEnter}
+				onMouseMove={!isTransitioning ? handleMouseEnter : null}
 				onClick={handleClick}
 			>
 				{movieIdx !== null && (

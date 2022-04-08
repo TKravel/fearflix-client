@@ -16,7 +16,7 @@ footer {
     }
     & a{
         color: $transparent-grey;
-        cursor: pointer;
+        cursor: default;
         text-decoration: none;
         &:hover{
             text-decoration: underline;
@@ -41,6 +41,6 @@ footer {
 }
 
 .footer-social-icon {
-    cursor: pointer;
+    cursor: default;
     fill: $white;
 }

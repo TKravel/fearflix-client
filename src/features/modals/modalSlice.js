@@ -5,6 +5,7 @@ const initialState = {
 		open: false,
 		details: {},
 		id: null,
+		isTransitioning: false,
 	},
 	fullPageModal: {
 		open: false,
@@ -18,7 +19,6 @@ export const modalSlice = createSlice({
 	initialState,
 	reducers: {
 		openHover: (state, action) => {
-			console.log(action.payload);
 			state.hoverModal.open = true;
 			state.hoverModal.id = action.payload.id;
 			state.hoverModal.details = action.payload.pos;
@@ -27,6 +27,13 @@ export const modalSlice = createSlice({
 			state.hoverModal.open = false;
 			state.hoverModal.id = null;
 			state.hoverModal.details = action.payload.pos;
+		},
+		setHoverStatus: (state, action) => {
+			if (action.payload === true) {
+				state.hoverModal.isTransitioning = true;
+			} else {
+				state.hoverModal.isTransitioning = false;
+			}
 		},
 		openFullPageModal: (state, action) => {
 			state.fullPageModal.open = true;
@@ -41,7 +48,12 @@ export const modalSlice = createSlice({
 	},
 });
 
-export const { openHover, closeHover, openFullPageModal, closeFullPageModal } =
-	modalSlice.actions;
+export const {
+	openHover,
+	closeHover,
+	setHoverStatus,
+	openFullPageModal,
+	closeFullPageModal,
+} = modalSlice.actions;
 
 export default modalSlice.reducer;
