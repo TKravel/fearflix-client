@@ -11,13 +11,21 @@ nav {
 	transition: background-color .7s;
 	width: 100%;
 	z-index: 50;
-	
+	@include responsive-sm{
+		padding: 0 .5rem;
+	}
 }
 .left-nav {
 	@include flexContainer($direction: row, $justify: flex-start);
 	& .main-logo {
 		height: 1.8rem;
 		margin: 0 1.5rem 0 0;
+		@include responsive-sm{
+		
+			height: 1.6rem;
+			margin: 0 0 0 0;
+		
+		}
 	}
 
 	& .nav-li-item {
@@ -34,6 +42,8 @@ nav {
 	& .nav-li-item:not(.active):hover{
 		color: $white-hover-light;
 	}
+	
+	
 	
 }
 .right-nav {
@@ -124,6 +134,9 @@ border: 1px solid $white;
 
 .search-box-active {
 	width: 200px;
+	@include responsive-sm{
+		width: 150px;
+	}
 }
 
 .notification-dropdown {

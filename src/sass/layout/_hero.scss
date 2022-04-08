@@ -9,9 +9,9 @@
 	@include responsive-sm {
 		background-repeat: no-repeat;
 		background-position: center;
-		background-size: cover;
+		background-size: cover contain;
 		width: 100vw;
-		height: auto;
+		height: 50vw;
 	}
 }
 
@@ -22,17 +22,41 @@
 	margin-left: 5rem;
 	height: 80%;
 	width: 35vw;
+	@include responsive-sm{
+		margin-left: 1rem;
+		width: 60vw;
+	}
 	& h1 {
 		font-size: 1.4rem;
 		font-weight: 800;
 		margin-bottom: 0.5rem;
+		@include responsive-sm{
+			font-size: 1rem;
+			margin-bottom: 1rem;
+		}
 	}
 	& p {
 		margin-bottom: 0.5rem;
+		@include responsive-sm{
+			display: none;
+		}
 	}
 	& button {
 		font-size: 1rem;
 		margin: 0 0.5rem 0 0;
+		@include responsive-sm{
+			font-size: .8rem;
+			margin: 0 1rem 0 0;
+		}
+	}
+}
+
+.hero-btn-text {
+	display: flex;
+	align-items: center;
+	padding: 0 0.5rem;
+	@include responsive-sm{
+		padding: 0 .2rem;
 	}
 }
 
@@ -48,5 +72,8 @@
 		font-weight: 600;
 		padding: 0.3rem 2.5rem 0.3rem 0.6rem;
 		text-shadow: $text-shadow;
+		@include responsive-sm{
+			font-size: .8rem;
+		}
 	}
 }

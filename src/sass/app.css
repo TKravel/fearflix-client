@@ -146,16 +146,6 @@ html {
   background-color: rgba(109, 109, 110, 0.5);
 }
 
-.hero-btn-text {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 0 0.5rem;
-}
-
 .carousel-button {
   background-color: transparent;
   border: none;
@@ -341,7 +331,7 @@ html {
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 150;
 }
 
@@ -790,12 +780,6 @@ html {
   z-index: 2;
 }
 
-.mobile-carousel-wrapper ::-webkit-scrollbar {
-  -webkit-appearance: none;
-  width: 0px;
-  background: transparent;
-}
-
 .mobile-carousel-wrapper .mobile-carousel {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -824,6 +808,13 @@ html {
   padding-right: 5vw;
 }
 
+.mobile-carousel-wrapper::-webkit-scrollbar {
+  -webkit-appearance: none;
+  display: none;
+  scrollbar-width: 0px;
+  background: transparent;
+}
+
 .nav-search-icon {
   fill: #ffffff;
   height: 16px;
@@ -844,11 +835,25 @@ html {
   margin-right: 0.3rem;
 }
 
+@media screen and (min-width: 1px) and (max-width: 500px) {
+  .hero-play-icon {
+    height: 14px;
+    width: 14px;
+  }
+}
+
 .hero-more-info-icon {
   fill: #ffffff;
   height: 20px;
   width: 20px;
   margin-right: 0.5rem;
+}
+
+@media screen and (min-width: 1px) and (max-width: 500px) {
+  .hero-more-info-icon {
+    height: 14px;
+    width: 14px;
+  }
 }
 
 .play-button {
@@ -953,9 +958,9 @@ footer a:hover {
   .hero {
     background-repeat: no-repeat;
     background-position: center;
-    background-size: cover;
+    background-size: cover contain;
     width: 100vw;
-    height: auto;
+    height: 50vw;
   }
 }
 
@@ -984,19 +989,62 @@ footer a:hover {
   width: 35vw;
 }
 
+@media screen and (min-width: 1px) and (max-width: 500px) {
+  .hero-details {
+    margin-left: 1rem;
+    width: 60vw;
+  }
+}
+
 .hero-details h1 {
   font-size: 1.4rem;
   font-weight: 800;
   margin-bottom: 0.5rem;
 }
 
+@media screen and (min-width: 1px) and (max-width: 500px) {
+  .hero-details h1 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
 .hero-details p {
   margin-bottom: 0.5rem;
+}
+
+@media screen and (min-width: 1px) and (max-width: 500px) {
+  .hero-details p {
+    display: none;
+  }
 }
 
 .hero-details button {
   font-size: 1rem;
   margin: 0 0.5rem 0 0;
+}
+
+@media screen and (min-width: 1px) and (max-width: 500px) {
+  .hero-details button {
+    font-size: .8rem;
+    margin: 0 1rem 0 0;
+  }
+}
+
+.hero-btn-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 0.5rem;
+}
+
+@media screen and (min-width: 1px) and (max-width: 500px) {
+  .hero-btn-text {
+    padding: 0 .2rem;
+  }
 }
 
 .rating-container {
@@ -1027,6 +1075,12 @@ footer a:hover {
   font-weight: 600;
   padding: 0.3rem 2.5rem 0.3rem 0.6rem;
   text-shadow: 0px 1px 6px rgba(0, 0, 0, 0.8);
+}
+
+@media screen and (min-width: 1px) and (max-width: 500px) {
+  .rating-container p {
+    font-size: .8rem;
+  }
 }
 
 .movie-card-wrapper {
@@ -1104,6 +1158,12 @@ nav {
   z-index: 50;
 }
 
+@media screen and (min-width: 1px) and (max-width: 500px) {
+  nav {
+    padding: 0 .5rem;
+  }
+}
+
 .left-nav {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1125,6 +1185,13 @@ nav {
 .left-nav .main-logo {
   height: 1.8rem;
   margin: 0 1.5rem 0 0;
+}
+
+@media screen and (min-width: 1px) and (max-width: 500px) {
+  .left-nav .main-logo {
+    height: 1.6rem;
+    margin: 0 0 0 0;
+  }
 }
 
 .left-nav .nav-li-item {
@@ -1318,6 +1385,12 @@ nav {
 
 .search-box-active {
   width: 200px;
+}
+
+@media screen and (min-width: 1px) and (max-width: 500px) {
+  .search-box-active {
+    width: 150px;
+  }
 }
 
 .notification-dropdown {

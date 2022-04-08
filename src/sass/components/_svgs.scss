@@ -14,12 +14,20 @@
 	height: 20px;
 	width: 20px;
 	margin-right: 0.3rem;
+	@include responsive-sm{
+		height: 14px;
+		width: 14px;
+	}
 }
 .hero-more-info-icon {
 	fill: $white;
 	height: 20px;
 	width: 20px;
 	margin-right: 0.5rem;
+	@include responsive-sm{
+		height: 14px;
+		width: 14px;
+	}
 }
 .play-button {
 	color: #000;

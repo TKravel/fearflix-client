@@ -16,12 +16,6 @@
 	overflow-x: scroll;
 	z-index: 2;
 
-    & ::-webkit-scrollbar {
-        -webkit-appearance: none;
-        width: 0px;
-background: transparent;
-    }
-
 	& .mobile-carousel {
 		@include flexContainer($direction: row, $justify: center);
 		align-items: stretch;
@@ -32,4 +26,10 @@ background: transparent;
 		left: 5vw;
         padding-right: 5vw;
 	}
+}
+.mobile-carousel-wrapper::-webkit-scrollbar {
+	-webkit-appearance: none;
+	display: none;
+	scrollbar-width: 0px;
+	background: transparent;
 }
