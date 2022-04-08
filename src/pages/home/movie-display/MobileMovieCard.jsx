@@ -1,12 +1,8 @@
 import { movieData } from '../../../data';
 import { useDispatch } from 'react-redux';
-import {
-	openHover,
-	openFullPageModal,
-} from '../../../features/modals/modalSlice';
-import { getPos } from '../../../utils/carouselUtils';
+import { openFullPageModal } from '../../../features/modals/modalSlice';
 
-export const MobileMovieCard = () => {
+export const MobileMovieCard = ({ idx, movieIdx }) => {
 	const dispatch = useDispatch();
 
 	const handleClick = (e) => {
@@ -15,8 +11,7 @@ export const MobileMovieCard = () => {
 		if (card === null) {
 			return;
 		}
-		const pos = getPos(e.target);
-		cardToExpand.pos = pos;
+		cardToExpand.pos = {};
 		if (window.innerWidth < 501) {
 			dispatch(openFullPageModal(cardToExpand));
 			return;
@@ -25,22 +20,11 @@ export const MobileMovieCard = () => {
 
 	return (
 		<div className='movie-card-wrapper'>
-			<div
-				className='movie-card'
-				id={movieIdx}
-				onPointerOver={handleMouseEnter}
-				onClick={handleClick}
-			>
-				{movieIdx !== null && (
-					<>
-						<img
-							className='movie-card-img'
-							src={movieData[movieIdx].posterURLs[342]}
-						/>
-
-						<div className='card-anchor'></div>
-					</>
-				)}
+			<div className='movie-card' id={movieIdx} onClick={handleClick}>
+				<img
+					className='movie-card-img'
+					src={movieData[movieIdx].posterURLs[342]}
+				/>
 			</div>
 		</div>
 	);

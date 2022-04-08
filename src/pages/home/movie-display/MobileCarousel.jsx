@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { MovieCard } from './MovieCard';
+import { MobileMovieCard } from './MobileMovieCard';
 
 export const MobileCarousel = ({ id, title, movieList }) => {
 	const [carouselData, setCarouselData] = useState([]);
@@ -8,7 +8,6 @@ export const MobileCarousel = ({ id, title, movieList }) => {
 	useEffect(() => {
 		if (carouselData.length === 0) {
 			setCarouselData(movieList);
-			console.log(carouselData);
 			setLoading(false);
 		}
 	}, [carouselData]);
@@ -22,9 +21,8 @@ export const MobileCarousel = ({ id, title, movieList }) => {
 						<div id={`carousel${id}`} className='mobile-carousel'>
 							{carouselData.map((value, index) => {
 								return (
-									<MovieCard
+									<MobileMovieCard
 										key={index}
-										idx={index}
 										movieIdx={value}
 									/>
 								);
