@@ -28,7 +28,7 @@ export const NotificationsDropdown = () => {
 		<ul>
 			{randomMovies.map((value, index) => {
 				return (
-					<li key={value}>
+					<li key={`${value}notification`}>
 						<NotificationCard
 							header={headers[index]}
 							movieIdx={value}

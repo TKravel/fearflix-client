@@ -58,7 +58,9 @@ export const FullPageModal = () => {
 							className='modal-close-button'
 							onClick={handleClose}
 						>
-							<CloseIcon styles='modal-close-icon' />
+							<div>
+								<CloseIcon styles='modal-close-icon' />
+							</div>
 						</button>
 						<IFrame
 							styles='full-page-iframe'

@@ -42,12 +42,16 @@
 		}
 	}
 	& button {
+		cursor: default;
 		font-size: 1rem;
 		margin: 0 0.5rem 0 0;
 		@include responsive-sm{
 			font-size: .8rem;
 			margin: 0 1rem 0 0;
 		}
+	}
+	& button:last-child {
+		cursor: pointer;
 	}
 }
 

@@ -30,6 +30,7 @@ nav {
 
 	& .nav-li-item {
 		color: $white-hover;
+		cursor: default;
 		font-size: 0.8rem;
 		margin: 0 0.7rem;
 		@include responsive-sm{

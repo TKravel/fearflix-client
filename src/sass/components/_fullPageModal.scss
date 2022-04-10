@@ -24,9 +24,18 @@
     @include responsive-sm{
         width: 90vw;
     }
+    .modal-close-button div {
+        @include flexContainer($direction: row, $justify: center);
+
+        background-color: $white;
+        border-radius: 50%;
+        background-color: $dark-grey;
+        height: 34px;
+        width: 34px;
+    }
     & .full-page-iframe {
         border: none;
-		height: 80vh;
+		height: 40vh;
 		padding: 0;
 		width: 100%;
         @include responsive-sm{
