@@ -16,7 +16,7 @@ export const MovieCard = ({ idx, movieIdx }) => {
 	const handleMouseEnter = (e) => {
 		const card = document.getElementById(movieIdx);
 		const cardToExpand = { id: e.currentTarget.id };
-		if (card === null) {
+		if (card === null || isTransitioning === true) {
 			return;
 		}
 		const pos = getPos(e.target);

@@ -9,8 +9,8 @@
 
 .carousel-wrapper {
 	@include flexContainer($direction: row, $justify: space-between);
-	align-items: stretch;
-	height: 34vw;
+	
+	height: 22.5vw;
 	position: relative;
 	width: 100%;
 	overflow-x: hidden;
@@ -18,7 +18,7 @@
 
 	& .carousel {
 		@include flexContainer($direction: row, $justify: center);
-		align-items: stretch;
+		
 		flex-wrap: nowrap;
 		height: 100%;
 		padding: 0 0 0 calc(5vw - 10px);
@@ -28,14 +28,8 @@
 		// width: calc(22.5vw * 28);
 	}
 
-	@include responsive-sm {
-		height: 70vw;
-		& .carousel {
-			// width: calc(40vw * 28)
-		}
-	}
-	@include responsive-lrg {
-		height: 25vw;
+	@include responsive-med {
+		height: 33.75vw;
 		& .carousel {
 			// width: calc(15vw * 28)
 		}

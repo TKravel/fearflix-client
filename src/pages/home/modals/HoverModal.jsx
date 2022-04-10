@@ -50,11 +50,11 @@ export const HoverModal = () => {
 	};
 
 	const handleTransitionEnd = (e) => {
-		if (e.target.classList.contains('fade-in')) {
+		if (e.animationName === 'fade-in') {
 			setCompletedTransition(true);
 		} else {
-			dispatch(setHoverStatus(false));
 			dispatch(closeHover({ pos: {} }));
+			dispatch(setHoverStatus(false));
 			setIsOpen(false);
 		}
 	};
