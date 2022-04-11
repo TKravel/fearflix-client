@@ -1407,7 +1407,7 @@ nav {
 
 @media screen and (min-width: 1px) and (max-width: 500px) {
   .search-box-active {
-    width: 150px;
+    width: 125px;
   }
 }
 

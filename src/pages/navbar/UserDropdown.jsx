@@ -65,7 +65,7 @@ export const UserDropdown = () => {
 				</li>
 			</ul>
 			<ul>
-				<li>Sign out of Netflix</li>
+				<li>Sign out of Fearflix</li>
 			</ul>
 		</>
 	);
