@@ -1,28 +1,19 @@
 .movie-card-wrapper {
 	cursor: pointer;
 	height: 100%;
-	width: 15vw;
-	padding: 0 3px;
-	@include responsive-sm {
-		width: 40vw
+	margin: 0 3px;
+	@include responsive-sm{
+		width: 40vw;
 	}
-
-	@include responsive-med {
-		width: 22.5vw
-	}
-	
 }
 
 .movie-card {
 	@include flexContainer($direction: row, $justify: center);
 	border-radius: 6px;
-	
 	height: 100%;
 	overflow: hidden;
 	width: 100%;
-	
 	& img {
-		
 		height: 100%;
 		width: 100%;
 	}

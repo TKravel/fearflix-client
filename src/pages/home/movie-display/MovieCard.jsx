@@ -5,7 +5,7 @@ import {
 	setHoverStatus,
 	openFullPageModal,
 } from '../../../features/modals/modalSlice';
-import { getPos } from '../../../utils/carouselUtils';
+import { getPos, getCardWidth } from '../../../utils/carouselUtils';
 
 export const MovieCard = ({ idx, movieIdx }) => {
 	const dispatch = useDispatch();
@@ -46,7 +46,10 @@ export const MovieCard = ({ idx, movieIdx }) => {
 	};
 
 	return (
-		<div className='movie-card-wrapper'>
+		<div
+			className='movie-card-wrapper'
+			style={{ width: getCardWidth(window.innerWidth) }}
+		>
 			<div
 				className='movie-card'
 				id={movieIdx}

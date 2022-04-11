@@ -13,6 +13,7 @@ import { FullPageModal } from './pages/home/modals/FullPageModal';
 
 function App() {
 	const dispatch = useDispatch();
+
 	// useEffect(() => {
 	// 	dispatch(fetchMovies());
 	// }, []);

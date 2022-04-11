@@ -33,12 +33,23 @@ export const getCardsVisible = (width) => {
 	}
 };
 
-export const getCardWidth = (width) => {
-	if (width < 500) {
-		return 40;
-	} else if (width < 900) {
-		return 22.5;
+export const getCardWidth = (vw) => {
+	if (vw < 500) {
+		return Math.round((getViewportWithoutScrollbar() / 100) * 40);
+	} else if (vw < 900) {
+		return Math.round((getViewportWithoutScrollbar() / 100) * 22.5);
 	} else {
-		return 15;
+		return Math.round((getViewportWithoutScrollbar() / 100) * 15);
 	}
+};
+
+export const getButtonWidth = () => {
+	return Math.round((getViewportWithoutScrollbar() / 100) * 5);
+};
+
+export const getViewportWithoutScrollbar = () => {
+	const scrollbarWidth =
+		window.innerWidth -
+		document.getElementsByTagName('html')[0].clientWidth;
+	return window.innerWidth - scrollbarWidth;
 };
