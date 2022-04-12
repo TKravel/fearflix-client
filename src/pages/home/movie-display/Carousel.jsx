@@ -31,7 +31,8 @@ export const Carousel = ({ id, title, movieList }) => {
 		}px`,
 	};
 
-	const setWindow = () => {
+	// calculate component sizes
+	const setWindowSizes = () => {
 		setWindowWidth(getViewportWithoutScrollbar());
 		arrShiftAmount = getCardsVisible(getViewportWithoutScrollbar());
 		cardWidth = getCardWidth(getViewportWithoutScrollbar());
@@ -41,11 +42,11 @@ export const Carousel = ({ id, title, movieList }) => {
 	};
 
 	useEffect(() => {
-		window.addEventListener('resize', setWindow);
+		window.addEventListener('resize', setWindowSizes);
 
-		setWindow();
+		setWindowSizes();
 
-		return () => window.removeEventListener('resize', setWindow);
+		return () => window.removeEventListener('resize', setWindowSizes);
 	}, []);
 
 	useEffect(() => {
@@ -164,6 +165,9 @@ export const Carousel = ({ id, title, movieList }) => {
 													key={index}
 													idx={index}
 													movieIdx={value}
+													carouselShifting={
+														isDisabled
+													}
 												/>
 											);
 										}
@@ -174,6 +178,7 @@ export const Carousel = ({ id, title, movieList }) => {
 												key={index}
 												idx={index}
 												movieIdx={value}
+												carouselShifting={isDisabled}
 											/>
 										);
 								  })}

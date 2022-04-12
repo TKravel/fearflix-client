@@ -7,50 +7,39 @@ import {
 } from '../../../features/modals/modalSlice';
 import { getPos, getCardWidth } from '../../../utils/carouselUtils';
 
-export const MovieCard = ({ idx, movieIdx }) => {
+export const MovieCard = ({ idx, movieIdx, carouselShifting }) => {
 	const dispatch = useDispatch();
 	const isTransitioning = useSelector(
 		(state) => state.modal.hoverModal.isTransitioning
 	);
 
-	const handleMouseEnter = (e) => {
-		const card = document.getElementById(movieIdx);
-		const cardToExpand = { id: e.currentTarget.id, index: idx };
-
-		if (isTransitioning === undefined) {
+	const handleMouseMove = (e) => {
+		// exit conditons to cancel mouse move function
+		if (carouselShifting || isTransitioning || window.innerWidth < 501) {
 			return;
 		}
 
-		if (card === null || isTransitioning === true) {
-			return;
-		}
+		const cardToExpand = {
+			id: e.currentTarget.id,
+			index: idx,
+			pos: getPos(e.target),
+		};
 
-		console.log(cardToExpand);
-
-		const pos = getPos(e.target);
-		cardToExpand.pos = pos;
-		if (window.innerWidth < 501) {
-			return;
-		} else {
-			setTimeout(() => {
-				dispatch(setHoverStatus(true));
-				dispatch(openHover(cardToExpand));
-			}, 200);
-		}
+		setTimeout(() => {
+			dispatch(setHoverStatus(true));
+			dispatch(openHover(cardToExpand));
+		}, 200);
 	};
 
 	const handleClick = (e) => {
 		const card = document.getElementById(movieIdx);
-		const cardToExpand = { id: e.currentTarget.id };
-		if (card === null) {
+		// exit conditons to cancel onClick function
+		if (card === null || window.innerWidth > 501) {
 			return;
 		}
-		const pos = getPos(e.target);
-		cardToExpand.pos = pos;
-		if (window.innerWidth < 501) {
-			dispatch(openFullPageModal(cardToExpand));
-			return;
-		}
+
+		const cardToExpand = { id: e.currentTarget.id, pos: getPos(e.target) };
+		dispatch(openFullPageModal(cardToExpand));
 	};
 
 	return (
@@ -61,7 +50,7 @@ export const MovieCard = ({ idx, movieIdx }) => {
 			<div
 				className='movie-card'
 				id={movieIdx}
-				onMouseMove={!isTransitioning ? handleMouseEnter : null}
+				onMouseMove={!isTransitioning ? handleMouseMove : null}
 				onClick={handleClick}
 			>
 				{movieIdx !== null && (
