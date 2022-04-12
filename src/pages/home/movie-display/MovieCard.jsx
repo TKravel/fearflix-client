@@ -13,12 +13,20 @@ export const MovieCard = ({ idx, movieIdx }) => {
 		(state) => state.modal.hoverModal.isTransitioning
 	);
 
+	console.log(isTransitioning);
+
 	const handleMouseEnter = (e) => {
 		const card = document.getElementById(movieIdx);
-		const cardToExpand = { id: e.currentTarget.id };
+		const cardToExpand = { id: e.currentTarget.id, index: idx };
+		const hoverModal = document.getElementsByClassName('hover-modal')[0];
+
+		console.log(isTransitioning);
+
 		if (card === null || isTransitioning === true) {
 			return;
 		}
+		console.log(hoverModal);
+
 		const pos = getPos(e.target);
 		cardToExpand.pos = pos;
 		if (window.innerWidth < 501) {

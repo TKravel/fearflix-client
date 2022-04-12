@@ -53,3 +53,24 @@ export const getViewportWithoutScrollbar = () => {
 		document.getElementsByTagName('html')[0].clientWidth;
 	return window.innerWidth - scrollbarWidth;
 };
+
+export const getAnimationDirection = (cardIdx) => {
+	const visibleCards = getCardsVisible(getViewportWithoutScrollbar());
+	if (visibleCards === 4) {
+		if (cardIdx === 12) {
+			return 'fade-right';
+		} else if (cardIdx === 15) {
+			return 'fade-left';
+		} else {
+			return 'fade-in';
+		}
+	} else {
+		if (cardIdx === 11) {
+			return 'fade-right';
+		} else if (cardIdx === 16) {
+			return 'fade-left';
+		} else {
+			return 'fade-in';
+		}
+	}
+};

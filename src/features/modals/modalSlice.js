@@ -5,6 +5,7 @@ const initialState = {
 		open: false,
 		details: {},
 		id: null,
+		index: null,
 		isTransitioning: false,
 	},
 	fullPageModal: {
@@ -20,11 +21,13 @@ export const modalSlice = createSlice({
 	reducers: {
 		openHover: (state, action) => {
 			state.hoverModal.open = true;
+			state.hoverModal.index = action.payload.index;
 			state.hoverModal.id = action.payload.id;
 			state.hoverModal.details = action.payload.pos;
 		},
 		closeHover: (state, action) => {
 			state.hoverModal.open = false;
+			state.hoverModal.index = null;
 			state.hoverModal.id = null;
 			state.hoverModal.details = action.payload.pos;
 		},

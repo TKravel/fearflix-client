@@ -13,6 +13,7 @@ import { PlusIcon } from '../../../svg/PlusIcon';
 import { ThumbUpIcon } from '../../../svg/ThumbUpIcon';
 import { DownArrowIcon } from '../../../svg/DownArrowIcon';
 import { IFrame } from './IFrame';
+import { getAnimationDirection } from '../../../utils/carouselUtils';
 
 export const HoverModal = () => {
 	const dispatch = useDispatch();
@@ -34,7 +35,9 @@ export const HoverModal = () => {
 		if (modal !== undefined) {
 			if (isOpen) {
 				setTimeout(() => {
-					modal.classList.add('fade-in');
+					modal.style.animationName = getAnimationDirection(
+						modalStatus.index
+					);
 				}, 200);
 			}
 		}
@@ -43,16 +46,27 @@ export const HoverModal = () => {
 	// start fade out transition / set state to render iframe
 	const mouseLeave = () => {
 		const modal = document.getElementsByClassName('hover-modal')[0];
-		modal.classList.remove('fade-in');
-		modal.style.animationName = 'fade-out';
-		modal.classList.add('fade-out');
+		const animationDirection =
+			getAnimationDirection(modalStatus.index) !== 'fade-in'
+				? `${getAnimationDirection(modalStatus.index)}-out`
+				: 'fade-out';
+		// modal.classList.remove(getAnimationDirection());
+		modal.style.animationName = animationDirection;
+		// modal.classList.add('fade-out');
 		setCompletedTransition(false);
 	};
 
 	const handleTransitionEnd = (e) => {
-		if (e.animationName === 'fade-in') {
+		if (
+			e.animationName === 'fade-in' ||
+			e.animationName === 'fade-left' ||
+			e.animationName === 'fade-right'
+		) {
 			setCompletedTransition(true);
 		} else {
+			document.getElementsByClassName(
+				'hover-modal'
+			)[0].style.animationName = '';
 			dispatch(closeHover({ pos: {} }));
 			dispatch(setHoverStatus(false));
 			setIsOpen(false);
