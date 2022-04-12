@@ -26,34 +26,55 @@ export const HoverModal = () => {
 		if (modalStatus.open !== true) {
 			return;
 		}
-		setIsOpen(true);
+		// allow 200ms delay for state to catch up
+		setTimeout(() => {
+			setIsOpen(true);
+		}, 200);
 	}, [modalStatus.open]);
 
-	// on state open start fade in animation
+	// on open determine cards animation / track mouse during anination
 	useEffect(() => {
 		const modal = document.getElementsByClassName('hover-modal')[0];
 		if (modal !== undefined) {
 			if (isOpen) {
-				setTimeout(() => {
-					modal.style.animationName = getAnimationDirection(
-						modalStatus.index
-					);
-				}, 200);
+				modal.style.animationName = getAnimationDirection(
+					modalStatus.index
+				);
+				// compare mouse coords to element coords during animation
+				const getMouseCoords = (e) => {
+					const elCoords = modal.getBoundingClientRect();
+					if (
+						e.clientY < elCoords.top ||
+						e.clientY > elCoords.bottom ||
+						e.clientX < elCoords.left ||
+						e.clientX > elCoords.right
+					) {
+						// fire mouse leave event if outside of animation
+						handleMouseLeave();
+					}
+				};
+				// pin event listener to document on modal open
+				document.addEventListener('mousemove', getMouseCoords);
+
+				// clean up event listener
+				return () =>
+					document.removeEventListener('mousemove', getMouseCoords);
 			}
 		}
 	}, [isOpen]);
 
-	// start fade out transition / set state to render iframe
-	const mouseLeave = () => {
+	// determine fade out animation by movie index / reset card to movie poster
+	const handleMouseLeave = () => {
+		console.log('leave');
 		const modal = document.getElementsByClassName('hover-modal')[0];
-		const animationDirection =
-			getAnimationDirection(modalStatus.index) !== 'fade-in'
-				? `${getAnimationDirection(modalStatus.index)}-out`
-				: 'fade-out';
-		// modal.classList.remove(getAnimationDirection());
-		modal.style.animationName = animationDirection;
-		// modal.classList.add('fade-out');
-		setCompletedTransition(false);
+		if (modal !== undefined) {
+			const animationDirection =
+				getAnimationDirection(modalStatus.index) !== 'fade-in'
+					? `${getAnimationDirection(modalStatus.index)}-out`
+					: 'fade-out';
+			modal.style.animationName = animationDirection;
+			setCompletedTransition(false);
+		}
 	};
 
 	const handleTransitionEnd = (e) => {
@@ -62,11 +83,10 @@ export const HoverModal = () => {
 			e.animationName === 'fade-left' ||
 			e.animationName === 'fade-right'
 		) {
+			// switch from movie poster to iframe and details
 			setCompletedTransition(true);
 		} else {
-			document.getElementsByClassName(
-				'hover-modal'
-			)[0].style.animationName = '';
+			// reset hover states and close modal
 			dispatch(closeHover({ pos: {} }));
 			dispatch(setHoverStatus(false));
 			setIsOpen(false);
@@ -86,9 +106,10 @@ export const HoverModal = () => {
 				<>
 					<div
 						className='hover-modal'
-						onMouseLeave={mouseLeave}
+						onMouseLeave={handleMouseLeave}
 						onAnimationEnd={handleTransitionEnd}
 						style={{
+							animationName: 'none',
 							left: `${modalStatus.details.x}px`,
 							top: `${modalStatus.details.y}px`,
 						}}
