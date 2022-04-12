@@ -1,0 +1,91 @@
+.like-button-wrapper {
+    cursor: pointer;
+	position: relative;
+}
+
+.like-modal{
+	@include flexContainer($direction: row, $justify: center);
+	flex-wrap: nowrap;
+	position: absolute;
+	top: 0;
+	left: -28px;
+	background-color: $med-grey;
+	border-radius: 100px;
+	box-shadow: none;
+    cursor: default;
+	height: 44px;
+	width: 100px;
+	opacity: 0;
+	visibility: hidden;
+	transition: all 600ms 300ms;
+	
+}
+
+.like-modal div {
+    position: relative;
+}
+
+.like-modal div:nth-child(1) p{
+    position: absolute;
+    top: -35px;
+    left: -43px;
+    background-color: $white;
+    border-radius: 5px;
+    box-shadow: $box-shadow;
+    color: $dark-grey;
+    display: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: .3rem 1rem;
+    width: 120px;
+}
+
+.like-modal div:nth-child(1):hover p{
+    display: block;
+}
+.like-modal div:nth-child(2) p{
+    position: absolute;
+    top: -35px;
+    left: -43px;
+    background-color: $white;
+    border-radius: 5px;
+    box-shadow: $box-shadow;
+    color: $dark-grey;
+    display: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: .3rem 1rem;
+    width: 120px;
+}
+
+.like-modal div:nth-child(2):hover p{
+    display: block;
+}
+.like-modal div:nth-child(3) p{
+    position: absolute;
+    top: -35px;
+    left: -63px;
+    background-color: $white;
+    border-radius: 5px;
+    box-shadow: $box-shadow;
+    color: $dark-grey;
+    display: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: .3rem 1rem;
+    white-space: nowrap;
+    width: 160px;
+}
+
+.like-modal div:nth-child(3):hover p{
+    display: block;
+}
+
+.like-modal-active {
+	box-shadow: $box-shadow;
+	justify-content: space-around;
+	left: -43px;
+	opacity: 1;
+	visibility: visible;
+	width: 130px;
+}

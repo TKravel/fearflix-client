@@ -14,6 +14,8 @@ import { ThumbUpIcon } from '../../../svg/ThumbUpIcon';
 import { DownArrowIcon } from '../../../svg/DownArrowIcon';
 import { IFrame } from './IFrame';
 import { getAnimationDirection } from '../../../utils/carouselUtils';
+import { SuperLikeIcon } from '../../../svg/SuperLikeIcon';
+import { LikeModal } from './LikeModal';
 
 export const HoverModal = () => {
 	const dispatch = useDispatch();
@@ -140,12 +142,7 @@ export const HoverModal = () => {
 												<PlusIcon styles='modal-icon' />
 											}
 										/>
-										<ModalButton
-											styles='modal-button'
-											buttonIcon={
-												<ThumbUpIcon styles='modal-icon' />
-											}
-										/>
+										<LikeModal />
 										<div onClick={openMoreInfoModal}>
 											<ModalButton
 												styles='modal-button'

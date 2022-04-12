@@ -219,7 +219,7 @@
 	& div.modal-button, div.modal-play {
 		margin: 5px;
 	}
-	& div:last-child {
+	& .modal-button:last-child {
 		cursor: pointer;
 		margin-left: auto;
 	}

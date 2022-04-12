@@ -50,3 +50,11 @@
 	height: 20px;
 	width: 20px;
 }
+
+.dislike-icon {
+	transform: rotate(180deg);
+	stroke: $white;
+	fill: $med-grey;
+	height: 20px;
+	width: 20px;
+}

@@ -9,6 +9,7 @@ import { ThumbUpIcon } from '../../../svg/ThumbUpIcon';
 import { getRating, displayRuntime } from '../../../utils/movieUtils';
 import { CloseIcon } from '../../../svg/CloseIcon';
 import { closeFullPageModal } from '../../../features/modals/modalSlice';
+import { LikeModal } from './LikeModal';
 
 export const FullPageModal = () => {
 	const modalStatus = useSelector((state) => state.modal.fullPageModal);
@@ -77,10 +78,7 @@ export const FullPageModal = () => {
 								styles='modal-button'
 								buttonIcon={<PlusIcon styles='modal-icon' />}
 							/>
-							<ModalButton
-								styles='modal-button'
-								buttonIcon={<ThumbUpIcon styles='modal-icon' />}
-							/>
+							<LikeModal />
 						</div>
 						<p className='full-page-modal-description'>
 							<span className='movie-score'>
