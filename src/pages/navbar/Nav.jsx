@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { BellIcon } from '../../svg/BellIcon';
 import { DownArrowSolidIcon } from '../../svg/DownArrowSolidIcon';
 import { SearchIcon } from '../../svg/SearchIcon';
+import { BrowseDropdown } from './BrowseDropdown';
 import { NotificationsDropdown } from './NotificationsDropdown';
 import { UserDropdown } from './UserDropdown';
 
@@ -35,6 +36,19 @@ export const Nav = () => {
 
 		searchBox.classList.remove('add-border');
 		searchInput.classList.remove('search-box-active');
+	};
+
+	const browseMouseOver = () => {
+		const browseDropdown = document.getElementsByClassName(
+			'browse-dropdown-wrapper'
+		)[0];
+		browseDropdown.classList.add('dropdown-active');
+	};
+	const browseMouseLeave = () => {
+		const browseDropdown = document.getElementsByClassName(
+			'browse-dropdown-wrapper'
+		)[0];
+		browseDropdown.classList.remove('dropdown-active');
 	};
 
 	const notificationMouseOver = () => {
@@ -95,11 +109,24 @@ export const Nav = () => {
 						alt='Fearflix logo'
 					/>
 				</li>
-				<li className='nav-li-item active'>Home</li>
+				<li className='nav-li-item'>Home</li>
 				<li className='nav-li-item'>TV Shows</li>
-				<li className='nav-li-item'>Movies</li>
+				<li className='nav-li-item active'>Movies</li>
 				<li className='nav-li-item'>New & Popular</li>
 				<li className='nav-li-item'>My List</li>
+				<li className='nav-li-item active'>
+					<div
+						className='nav-browse-item'
+						onMouseOver={browseMouseOver}
+						onMouseLeave={browseMouseLeave}
+					>
+						Browse <DownArrowSolidIcon styles='browse-arrow' />
+						<div className='browse-dropdown-wrapper'>
+							<DownArrowSolidIcon styles='browse-dropdown-list-arrow' />
+							<BrowseDropdown />
+						</div>
+					</div>
+				</li>
 			</ul>
 			<ul className='right-nav'>
 				<li>

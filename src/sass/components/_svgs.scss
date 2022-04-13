@@ -4,6 +4,22 @@
 	width: 16px;
 	margin: 0 0.5rem;
 }
+.browse-arrow{
+	fill: $white;
+	height: 12px;
+	margin-left: 2px;
+	width: 12px;
+	transform: rotate(90deg);
+}
+.browse-dropdown-list-arrow{
+	fill: $white;
+	height: 18px;
+	position: absolute;
+	width: 18px;
+	top: -12px;
+	left: 131px;
+	transform: rotate(-90deg);
+}
 .nav-alerts-icon {
 	fill: $white;
 	height: 20px;

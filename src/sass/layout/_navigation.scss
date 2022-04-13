@@ -15,6 +15,9 @@ nav {
 	@include responsive-sm{
 		padding: 0 .5rem;
 	}
+	@include responsive-med {
+		padding: 0 1rem;
+	}
 }
 .left-nav {
 	@include flexContainer($direction: row, $justify: flex-start);
@@ -22,10 +25,11 @@ nav {
 		height: 1.8rem;
 		margin: 0 1.5rem 0 0;
 		@include responsive-sm{
-		
 			height: 1.6rem;
 			margin: 0 0 0 0;
-		
+		}
+		@include responsive-med {
+			margin: 0 .5rem 0 0;
 		}
 	}
 
@@ -38,15 +42,29 @@ nav {
 		display: none;
 		}
 	}
+	@media screen and (max-width: 875px){
+		.nav-li-item:not(:last-child){
+			display: none;
+		}
+	}
+	@media screen and (min-width: 876px){
+		.nav-li-item:last-child{
+			display: none;
+		}
+	}
 	& .active {
 		color: $white;
 	}
 	& .nav-li-item:not(.active):hover{
 		color: $white-hover-light;
 	}
-	
-	
-	
+	& .nav-browse-item {
+		@include flexContainer($direction: row, $justify: center);
+
+		position: relative;
+		cursor: pointer;
+		height: 3rem;
+	}
 }
 .right-nav {
 	@include flexContainer($direction: row, $justify: flex-end);
@@ -137,6 +155,12 @@ nav {
 .search-box-active {
 	width: 200px;
 	@include responsive-sm{
+		width: 125px;
+	}
+}
+
+@media screen and (max-width: 650px){
+	.search-box-active{
 		width: 125px;
 	}
 }
