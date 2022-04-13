@@ -10,11 +10,9 @@ import { ModalButton } from './ModalButton';
 import { getRating, displayRuntime } from '../../../utils/movieUtils';
 import { PlayIcon } from '../../../svg/PlayIcon';
 import { PlusIcon } from '../../../svg/PlusIcon';
-import { ThumbUpIcon } from '../../../svg/ThumbUpIcon';
 import { DownArrowIcon } from '../../../svg/DownArrowIcon';
 import { IFrame } from './IFrame';
 import { getAnimationDirection } from '../../../utils/carouselUtils';
-import { SuperLikeIcon } from '../../../svg/SuperLikeIcon';
 import { LikeModal } from './LikeModal';
 
 export const HoverModal = () => {
@@ -33,6 +31,20 @@ export const HoverModal = () => {
 			setIsOpen(true);
 		}, 200);
 	}, [modalStatus.open]);
+
+	// determine fade out animation by movie index / reset card to movie poster
+	const handleMouseLeave = () => {
+		console.log('leave');
+		const modal = document.getElementsByClassName('hover-modal')[0];
+		if (modal !== undefined) {
+			const animationDirection =
+				getAnimationDirection(modalStatus.index) !== 'fade-in'
+					? `${getAnimationDirection(modalStatus.index)}-out`
+					: 'fade-out';
+			modal.style.animationName = animationDirection;
+			setCompletedTransition(false);
+		}
+	};
 
 	// on open determine cards animation / track mouse during anination
 	useEffect(() => {
@@ -63,21 +75,8 @@ export const HoverModal = () => {
 					document.removeEventListener('mousemove', getMouseCoords);
 			}
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [isOpen]);
-
-	// determine fade out animation by movie index / reset card to movie poster
-	const handleMouseLeave = () => {
-		console.log('leave');
-		const modal = document.getElementsByClassName('hover-modal')[0];
-		if (modal !== undefined) {
-			const animationDirection =
-				getAnimationDirection(modalStatus.index) !== 'fade-in'
-					? `${getAnimationDirection(modalStatus.index)}-out`
-					: 'fade-out';
-			modal.style.animationName = animationDirection;
-			setCompletedTransition(false);
-		}
-	};
 
 	const handleTransitionEnd = (e) => {
 		if (
@@ -120,6 +119,9 @@ export const HoverModal = () => {
 							<img
 								className='movie-card-img'
 								src={movieData[modalStatus.id].posterURLs[342]}
+								alt={`${
+									movieData[modalStatus.id].title
+								} movie poster`}
 							/>
 						) : (
 							<>
