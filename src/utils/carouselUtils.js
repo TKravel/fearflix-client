@@ -23,6 +23,7 @@ const getElementYOffset = (element) => {
 	return distanceFromTopOfPage;
 };
 
+// decide how many cards to desiplay depending on screen size
 export const getCardsVisible = (width) => {
 	if (width < 500) {
 		return 2;
@@ -33,6 +34,7 @@ export const getCardsVisible = (width) => {
 	}
 };
 
+// calculate card width based of screen size
 export const getCardWidth = (vw) => {
 	if (vw < 500) {
 		return Math.round((getViewportWithoutScrollbar() / 100) * 40);
@@ -43,10 +45,12 @@ export const getCardWidth = (vw) => {
 	}
 };
 
+// calculate button width
 export const getButtonWidth = () => {
 	return Math.round((getViewportWithoutScrollbar() / 100) * 5);
 };
 
+// get vw w/o scrollbar
 export const getViewportWithoutScrollbar = () => {
 	const scrollbarWidth =
 		window.innerWidth -
@@ -54,6 +58,7 @@ export const getViewportWithoutScrollbar = () => {
 	return window.innerWidth - scrollbarWidth;
 };
 
+// get animation difrection based on cards location on screen
 export const getAnimationDirection = (cardIdx) => {
 	const visibleCards = getCardsVisible(getViewportWithoutScrollbar());
 	if (visibleCards === 4) {

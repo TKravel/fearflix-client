@@ -4,7 +4,6 @@ import {
 	setHoverStatus,
 	openFullPageModal,
 } from '../../../features/modals/modalSlice';
-import { movieData } from '../../../data';
 import { useEffect, useState } from 'react';
 import { ModalButton } from './ModalButton';
 import { getRating, displayRuntime } from '../../../utils/movieUtils';
@@ -18,6 +17,7 @@ import { LikeModal } from './LikeModal';
 export const HoverModal = () => {
 	const dispatch = useDispatch();
 	const modalStatus = useSelector((state) => state.modal.hoverModal);
+	const movies = useSelector((state) => state.movie.movies);
 	const [isOpen, setIsOpen] = useState(false);
 	const [completedTransition, setCompletedTransition] = useState(false);
 
@@ -118,16 +118,16 @@ export const HoverModal = () => {
 						{!completedTransition ? (
 							<img
 								className='movie-card-img'
-								src={movieData[modalStatus.id].posterURLs[342]}
+								src={movies[modalStatus.id].posterURLs[342]}
 								alt={`${
-									movieData[modalStatus.id].title
+									movies[modalStatus.id].title
 								} movie poster`}
 							/>
 						) : (
 							<>
 								<IFrame
 									styles='hover-iframe'
-									vidURL={movieData[modalStatus.id].video}
+									vidURL={movies[modalStatus.id].video}
 								/>
 
 								<div className='card-details'>
@@ -156,22 +156,18 @@ export const HoverModal = () => {
 									</div>
 									<div className='hover-modal-description'>
 										<span className='movie-score'>
-											{
-												movieData[modalStatus.id]
-													.imdbRating
-											}
-											% IMDb rating
+											{movies[modalStatus.id].imdbRating}%
+											IMDb rating
 										</span>
 										<span className='movie-rating'>
 											{' '}
 											{getRating(
-												movieData[modalStatus.id].age
+												movies[modalStatus.id].age
 											)}{' '}
 										</span>
 										<span>
 											{displayRuntime(
-												movieData[modalStatus.id]
-													.runtime
+												movies[modalStatus.id].runtime
 											)}
 										</span>
 									</div>

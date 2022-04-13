@@ -1,20 +1,23 @@
 import { Carousel } from './Carousel';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { movieData } from '../../../data';
 import { MobileCarousel } from './MobileCarousel';
 
 export const MovieDisplayContainer = () => {
+	const movies = useSelector((state) => state.movie.movies);
 	const [movieLists, setMovieLists] = useState([]);
 	const [loading, setLoading] = useState(true);
 
+	// create movie lists for carousels
 	useEffect(() => {
 		const data = [];
+
+		// create 3 arrays of unique items with a length of 28
 		for (let i = 0; i < 3; i++) {
 			let state = [];
 
 			while (state.length < 28) {
-				let randomNum = Math.ceil(Math.random() * movieData.length - 1);
+				let randomNum = Math.ceil(Math.random() * movies.length - 1);
 				if (!state.includes(randomNum)) {
 					state.push(randomNum);
 				}

@@ -3,10 +3,11 @@ import { InfoIcon } from '../../svg/InfoIcon';
 import { PlayIcon } from '../../svg/PlayIcon';
 import { getRating } from '../../utils/movieUtils';
 import { openFullPageModal } from '../../features/modals/modalSlice';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 export const Hero = () => {
 	const dispatch = useDispatch();
+	const movies = useSelector((state) => state.movie.movies);
 	const randomNum = Math.ceil(Math.random() * 130);
 	const imageURL = movieData[randomNum].backdropURLs[1280];
 
@@ -24,8 +25,8 @@ export const Hero = () => {
 			}}
 		>
 			<div className='hero-details'>
-				<h1>{movieData[randomNum].title}</h1>
-				<p>{movieData[randomNum].overview}</p>
+				<h1>{movies[randomNum].title}</h1>
+				<p>{movies[randomNum].overview}</p>
 				<div className='hero-btn-container'>
 					<button className='hero-play-btn'>
 						<div className='hero-btn-text'>
@@ -45,7 +46,7 @@ export const Hero = () => {
 				</div>
 			</div>
 			<div className='rating-container'>
-				<p>{getRating(movieData[randomNum].age)}</p>
+				<p>{getRating(movies[randomNum].age)}</p>
 			</div>
 		</section>
 	);

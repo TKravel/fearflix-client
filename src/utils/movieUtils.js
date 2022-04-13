@@ -22,3 +22,16 @@ export const displayRuntime = (num) => {
 	const mins = num % 60;
 	return `${hours}h ${mins}m`;
 };
+
+export const getCast = (arr) => {
+	let displayableCastString = '';
+
+	for (let i = 0; i <= arr.length - 1; i++) {
+		if (i === arr.length - 1) {
+			displayableCastString += ` ${arr[i]}.`;
+		} else {
+			displayableCastString += ` ${arr[i]},`;
+		}
+	}
+	return displayableCastString;
+};

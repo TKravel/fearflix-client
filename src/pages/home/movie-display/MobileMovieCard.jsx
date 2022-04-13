@@ -1,9 +1,9 @@
-import { movieData } from '../../../data';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { openFullPageModal } from '../../../features/modals/modalSlice';
 
 export const MobileMovieCard = ({ idx, movieIdx }) => {
 	const dispatch = useDispatch();
+	const movies = useSelector((state) => state.movie.movies);
 
 	const handleClick = (e) => {
 		const card = document.getElementById(movieIdx);
@@ -23,7 +23,7 @@ export const MobileMovieCard = ({ idx, movieIdx }) => {
 			<div className='movie-card' id={movieIdx} onClick={handleClick}>
 				<img
 					className='movie-card-img'
-					src={movieData[movieIdx].posterURLs[342]}
+					src={movies[movieIdx].posterURLs[342]}
 				/>
 			</div>
 		</div>

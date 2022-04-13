@@ -1,4 +1,3 @@
-import { movieData } from '../../../data';
 import { useDispatch, useSelector } from 'react-redux';
 import {
 	openHover,
@@ -12,6 +11,7 @@ export const MovieCard = ({ idx, movieIdx, carouselShifting }) => {
 	const isTransitioning = useSelector(
 		(state) => state.modal.hoverModal.isTransitioning
 	);
+	const movies = useSelector((state) => state.movie.movies);
 
 	const handleMouseMove = (e) => {
 		// exit conditons to cancel mouse move function
@@ -57,7 +57,7 @@ export const MovieCard = ({ idx, movieIdx, carouselShifting }) => {
 					<>
 						<img
 							className='movie-card-img'
-							src={movieData[movieIdx].posterURLs[342]}
+							src={movies[movieIdx].posterURLs[342]}
 						/>
 
 						<div className='card-anchor'></div>

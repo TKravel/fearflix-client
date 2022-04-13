@@ -1,17 +1,17 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { IFrame } from './IFrame';
-import { movieData } from '../../../data';
 import { ModalButton } from './ModalButton';
 import { PlayIcon } from '../../../svg/PlayIcon';
 import { PlusIcon } from '../../../svg/PlusIcon';
-import { getRating, displayRuntime } from '../../../utils/movieUtils';
+import { getRating, displayRuntime, getCast } from '../../../utils/movieUtils';
 import { CloseIcon } from '../../../svg/CloseIcon';
 import { closeFullPageModal } from '../../../features/modals/modalSlice';
 import { LikeModal } from './LikeModal';
 
 export const FullPageModal = () => {
 	const modalStatus = useSelector((state) => state.modal.fullPageModal);
+	const movies = useSelector((state) => state.movie.movies);
 	const dispatch = useDispatch();
 	const [isOpen, setIsOpen] = useState(false);
 
@@ -20,19 +20,7 @@ export const FullPageModal = () => {
 		dispatch(closeFullPageModal());
 	};
 
-	const getCast = (arr) => {
-		let displayableCastString = '';
-
-		for (let i = 0; i <= arr.length - 1; i++) {
-			if (i === arr.length - 1) {
-				displayableCastString += ` ${arr[i]}.`;
-			} else {
-				displayableCastString += ` ${arr[i]},`;
-			}
-		}
-		return displayableCastString;
-	};
-
+	// control isOpen state on load
 	useEffect(() => {
 		if (modalStatus.open !== true) {
 			if (isOpen === true) {
@@ -42,6 +30,7 @@ export const FullPageModal = () => {
 		}
 		setIsOpen(true);
 	}, [modalStatus.open, isOpen]);
+
 	return (
 		<>
 			{isOpen && (
@@ -64,7 +53,7 @@ export const FullPageModal = () => {
 						</button>
 						<IFrame
 							styles='full-page-iframe'
-							vidURL={movieData[modalStatus.id].video}
+							vidURL={movies[modalStatus.id].video}
 						/>
 						<div className='hover-modal-btn-container'>
 							<ModalButton
@@ -81,27 +70,24 @@ export const FullPageModal = () => {
 						</div>
 						<p className='full-page-modal-description'>
 							<span className='movie-score'>
-								{movieData[modalStatus.id].imdbRating}% IMDb
-								rating
+								{movies[modalStatus.id].imdbRating}% IMDb rating
 							</span>
 							<span className='movie-rating'>
 								{' '}
-								{getRating(movieData[modalStatus.id].age)}{' '}
+								{getRating(movies[modalStatus.id].age)}{' '}
 							</span>
 							<span>
-								{displayRuntime(
-									movieData[modalStatus.id].runtime
-								)}
+								{displayRuntime(movies[modalStatus.id].runtime)}
 							</span>
 						</p>
 						<div className='full-page-modal-details'>
-							<h1>{movieData[modalStatus.id].title}</h1>
-							<p>{movieData[modalStatus.id].overview}</p>
+							<h1>{movies[modalStatus.id].title}</h1>
+							<p>{movies[modalStatus.id].overview}</p>
 						</div>
 						<div className='full-page-modal-people'>
 							<p>
 								<span>Cast: </span>
-								{getCast(movieData[modalStatus.id].cast)}
+								{getCast(movies[modalStatus.id].cast)}
 							</p>
 						</div>
 					</div>
