@@ -5,7 +5,6 @@ import { movieData } from '../../../data';
 import { ModalButton } from './ModalButton';
 import { PlayIcon } from '../../../svg/PlayIcon';
 import { PlusIcon } from '../../../svg/PlusIcon';
-import { ThumbUpIcon } from '../../../svg/ThumbUpIcon';
 import { getRating, displayRuntime } from '../../../utils/movieUtils';
 import { CloseIcon } from '../../../svg/CloseIcon';
 import { closeFullPageModal } from '../../../features/modals/modalSlice';
@@ -42,7 +41,7 @@ export const FullPageModal = () => {
 			return;
 		}
 		setIsOpen(true);
-	}, [modalStatus.open]);
+	}, [modalStatus.open, isOpen]);
 	return (
 		<>
 			{isOpen && (
